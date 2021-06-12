@@ -24,6 +24,7 @@ We will start by discussing a real life analogy of functions in order to illustr
 
 
 <a name="recipe"/>
+
 ## How to read a recipe
 We can think about programming as 'giving instructions', where our target for these instructions is a (dumb) machine. 
 A similar case of 'giving instructions' can be in cooking recipes. 
@@ -80,6 +81,7 @@ It's as simple as that! We will get to code soon enough but before you continue 
 
 
 <a name="anatomy"/>
+
 ## Anatomy of a function
 Now that we have looked at recipes we will switch to javascript. Instead of peeling bananas (quite hard to do in javascript) we will look at the simple case of increasing a given number by one. Before we go to the code let's determine the parts of the function we need:
 
