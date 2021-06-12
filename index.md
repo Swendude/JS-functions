@@ -49,11 +49,15 @@ A child trying out this recipe might have trouble following the steps since it i
 
 ```
 Step 1.a: Take 2 bananas
-Step 1.b: Remove the peel of the bananas by snapping off the stem and pulling downwards
-Step 1.c: Put the peeled bananas in a bowl and using a fork to push them down until they become somewhat liquid
+Step 1.b: Remove the peel of the bananas\
+  by snapping off the stem and pulling downwards
+Step 1.c: Put the peeled bananas in a bowl\
+  and using a fork to push them down until they become somewhat liquid
 Step 2.a: Take 3 oranges
-Step 2.b: Using a knife remove the skin of the orange without cutting into the flesh
-Step 2.c: cut the peeled oranges in half and use a juicer to collect the juice
+Step 2.b: Using a knife remove the skin of\ 
+  the orange without cutting into the flesh
+Step 2.c: cut the peeled oranges in half and\
+  use a juicer to collect the juice
 Step 3.a: Take 10 strawberries
 Step 3.b: Using a knife cut of the top just below the stem
 Step 3.c: Cut the cleaned strawberries into 4 parts
@@ -62,7 +66,20 @@ Step 4.b: Put everything into a blender and let it run until smooth
 
 Enjoy!
 ```
-As we can see, our recipe got a lot longer by 'expanding' the instructions for slicing and other operations. It would be very impractical to write all reciped this way, cookbooks would be way longer and recipes would contain a lot of repetitive steps. There are [8 different approaches to peeling a banana on wikiHow)(https://www.wikihow.com/Peel-a-Banana)
+As we can see, our recipe got a lot longer by 'expanding' the instructions for slicing and other operations. It would be very impractical to write all reciped this way, cookbooks would be way longer and recipes would contain a lot of repetitive steps. There are [8 different approaches to peeling a banana on wikiHow](https://www.wikihow.com/Peel-a-Banana) so the details may vary between cooks.
+
+So we might think of the verbs we encounter in the original recipes like 'sub-instructions' that are defined somewhere else. This is exactly what functions are as we will see later. Notice how most verbs 'act on' *something* and then produce a _result_ like the verb 'Peel' can 'act on' *banana* and then produce a _Peeled banana_. 
+
+Maybe you know how to juggle, you juggle something (knives, flaming torches or chainsaws) to produce a loud applause. Most verbs can be described using this pattern so let's come up with some names for the various parts that make up a 'sub-instruction' (which we will now call functions):
+
+- A Function has a *name* (or identifier). E.g. 'Peel' and 'Juggle'
+- A Functions may 'act on' some (or multiple) thing, we call this the *arguments*. E.g. 'Banana' or 'Knives'.
+  - _Some function do not 'act on' anything but just produce results. E.g 'Smiling'_
+- A Function produces a *result*, this may be an effect like 'knives being thrown in a pattern' or it may be a thing like 'Peeled banana' 
+
+I hope this made sense, even tough it's a bit artifical this analogy work pretty well to get a feel for functions without thinking about code yet. We will get to code soon enough but before continueing spent some time on the following exercises:
+
+_Ex 1. Write down 10 examples of functions you encounter in real life, giver their *name, arguments (if any) and result*_
 
 <a name="anatomy"/>
 ## Anatomy of a function
