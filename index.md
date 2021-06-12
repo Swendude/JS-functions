@@ -89,14 +89,17 @@ Now that we have looked at recipes we will switch to javascript. Instead of peel
 
 > This case is simple, but writing stuff like this down will help you with complex functions later.
 
+### Defining functions
+
 With this 'definition' of our new function **Increase** we could write an instruction like 'Increase 7'. We expect the result to be 8.
 Let's look at what **Increase** looks like in javascript.
 
 ```javascript
-function increase(argument1) {
-  return (argument1 + 1);
+function increase(num) {
+  return (num + 1);
 }
 ```
+This is called a 'function definition', and that's exactly what it does there is no code that gets executed here. It defines a function named 'increase' that has a single argument named 'num', the steps needed to execute this function are defined within the curly brackets following the name and arguments. We call the steps between curly brackets the 'function body'. A functions name and it's arguments are called the 'function signature'. 
 
 <a name="using"/>
 ## Using functions
