@@ -5,11 +5,11 @@ In this tutorial you will learn about functions in javascript. Professional deve
 ### Structure of this tutorial
 We will start by discussing a real life analogy of functions in order to illustrate what we want to accomplish. Next, we dive into what a function looks like and how you can use it in your code. In the third part we will look at the benefits of using functions. The final part goes into advanced usage of functions, consider this material a sneak peek of how modern javascript uses functions.
 
-_**This tutorial assumes you are familiar with the following concepts. If you feel unsure about any of these take some time to review the before continuing this tutorial.**_
-
-- _How to define and use variables_
-- _Built-in datatypes (Bools, numbers, strings, objects)_
-- _Boolean conditions, if-else statements_
+> _**This tutorial assumes you are familiar with the following concepts. If you feel unsure about any of these take some time to review the before continuing this tutorial.**_
+> 
+> - _How to define and use variables_
+> - _Built-in datatypes (Bools, numbers, strings, objects)_
+> - _Boolean conditions, if-else statements_
 
 ## Table of Contents  
 [How to read a recipe](#recipe)  
