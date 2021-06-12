@@ -1,6 +1,6 @@
 # Functions in Javascript
 
-In this tutorial you will learn about functions in javascript. Professional developers use functions all the time. They are a fundamental concept of coding in javascript (and most other languages). Take your time going trough this content to really get a firm graps on this concept, it will pay off.
+In this tutorial you will learn about functions in javascript. Professional developers use functions all the time. They are a fundamental concept of coding in javascript (and most other languages). Take your time going trough this content to really get a firm grasp on this concept, it will pay off.
 
 ### Structure of this tutorial
 We will start by discussing a real life analogy of functions in order to illustrate what we want to accomplish. Next, we dive into what a function looks like and how you can use it in your code. In the third part we will look at the benefits of using functions. The final part goes into advanced usage of functions, consider this material a sneak peek of how modern javascript uses functions.
@@ -23,10 +23,10 @@ We will start by discussing a real life analogy of functions in order to illustr
 [Higher order functions, passing functions around](#passing)
 
 
-## How to read a recipe
 <a name="recipe"/>
+## How to read a recipe
 We can think about programming as 'giving instructions', where our target for these instructions is a (dumb) machine. 
-A different case of 'giving instructions' is found by looking at cooking recipes. 
+A similar case of 'giving instructions' can be in cooking recipes. 
 
 In recipes the target is an (intelligent) human. Although a human and a machine require very different instructions there are some similarities between instructions aimed at them.
 
@@ -40,7 +40,7 @@ Step 4: Blend the banana mash, orange juice and\
   the sliced strawberries together until smooth
 ```
 
-As we can see this recipe is very consice, it is something that a human (probably) will understand. 
+As we can see this recipe is very consice, it is something that a human will (probably) understand. 
 The way it is written assumes the reader knows how to peel, clean and blend different kinds of fruits. To most humans this will be obvious and maybe even trivial but a child trying out this recipe might have trouble following the steps. For this child we can make the recipe more verbose like this:
 
 ```
@@ -60,14 +60,15 @@ Step 3.c: Cut the cleaned strawberries into 4 parts
 Step 4.a: Take the banana mash, orange juice and sliced strawberries
 Step 4.b: Put everything into a blender and let it run until smooth
 ```
-As we can see, our recipe got a lot longer by 'expanding' the instructions for slicing and other operations into the recipe. It would be very impractical to write recipes this way, cookbooks would be way longer and recipes would contain a lot of repetitive steps. There are [8 different approaches to peeling a banana on wikiHow](https://www.wikihow.com/Peel-a-Banana) so the details may vary between cooks or might even change over time. This is why in normal cookbooks these verbs are considered to be understood without showing the steps to execute them.
+As we can see, our recipe got a lot longer by 'expanding' the instructions for slicing and other operations into the recipe. It would be very impractical to write recipes this way, cookbooks would be way longer and recipes would contain a lot of repetitive steps. Another disadvantage of this method is that every cook has their own method for 'slicing' and 'peeling', as seen by the [8 different approaches to peeling a banana on wikiHow](https://www.wikihow.com/Peel-a-Banana). Techniques might change over time (somebody invents a Banana-peeler 2000), rendering books obsolete or outdated. 
 
-Think of the verbs we encountered in the original recipes like 'sub-instructions' that are defined somewhere else (like a different cookbook or inside your mind). This is exactly what functions are in programming. Take a look at the verbs and notice how most of them 'act on' *something* and then produce a _result_. For instance, the verb 'Peel' can 'act on' *banana* and then produce a _Peeled banana_. Maybe you know how to juggle, you juggle something (knives, flaming torches or chainsaws) to produce a loud applause.
+
+Think of the verbs we encountered in the original recipes. They are like 'sub-instructions' that are defined somewhere else (like a different cookbook or inside your mind). This is exactly what functions are in programming. Take a look at the verbs and notice how most of them 'act on' *something* and then produce a _result_. For instance, the verb 'Peel' can 'act on' *banana* and then produce a _Peeled banana_. Maybe you know how to juggle, you juggle something (knives, flaming torches or chainsaws) to produce a loud applause.
 
 Most verbs can be described using this pattern so let's come up with some names for the various parts that make up a 'sub-instruction' (which we will now call functions):
 
 - A Function has a *name* (or identifier). E.g. 'Peel' and 'Juggle.'
-- A Functions may 'act on' some (or multiple) thing, we call this the *arguments*. E.g. 'Banana' or 'Knives'. _Some function do not 'act on' anything but just produce results (e.g 'Smiling')._
+- A Function may 'act on' some (or multiple) thing, we call this the *arguments*. E.g. 'Banana' or 'Knives'. _Some function do not 'act on' anything but just produce results (e.g 'Smiling')._
 - A Function produces a *result*, this may be an effect like 'knives being thrown in a pattern' or it may be a thing like 'Peeled banana'. 
 
 I hope this made sense, even tough it's a bit artifical this analogy work pretty well to get a feel for functions without thinking about code yet. We will get to code soon enough but before continueing spent some time on the following exercises:
