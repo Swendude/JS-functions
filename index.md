@@ -63,6 +63,7 @@ Step 4.b: Put everything into a blender and let it run until smooth
 ```
 As we can see, our recipe got a lot longer by 'expanding' the sub-instructions into the recipe. It would be very impractical to write recipes this way, cookbooks would have to be way longer and recipes would contain a lot of repetitive steps. Another disadvantage of this method is that every cook has their own preferred method for 'slicing' and 'peeling', as seen by the [8 different approaches to peeling a banana on wikiHow](https://www.wikihow.com/Peel-a-Banana). Techniques might change over time (somebody invents a Banana-peeler 2000), rendering books obsolete or outdated. 
 
+### Verbs as functions
 
 Think of the verbs we encountered in the original recipes. They are like 'sub-instructions' that are defined somewhere else (like a different cookbook or inside your mind). This is exactly what functions are in programming. 
 Take a look at the verbs and notice how most of them 'act on' **something** and then produce a **_result_**. 
