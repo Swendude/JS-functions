@@ -78,9 +78,9 @@ It's as simple as that! We will get to code soon enough but before you continue 
 
 > _Ex 1. Write down 10 examples of functions you encounter in real life, **give their name, arguments (if any) and result**_
 
+
 <a name="anatomy"/>
 ## Anatomy of a function
-
 Now that we have looked at recipes we will switch to javascript. Instead of peeling bananas (quite hard to do in javascript) we will look at the simple case of increasing a given number by one. Before we go to the code let's determine the parts of the function we need:
 
 - Our function needs a name, 'increase' seems to be a good choice
