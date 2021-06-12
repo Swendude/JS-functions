@@ -77,7 +77,7 @@ Most verbs can be described using this pattern so let's come up with some names 
 
 It's as simple as that! We will get to code soon enough but before you continue spent some time on the following exercises:
 
-> _Ex 1. Write down 10 examples of functions you encounter in real life, **give their name, arguments (if any) and result**_
+_Ex 1. Write down 10 examples of functions you encounter in real life, **give their name, arguments (if any) and result**_
 
 
 <a name="anatomy"/>
