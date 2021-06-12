@@ -22,8 +22,25 @@ We will start by discussing a real life analogy of functions in order to illustr
 
 [Higher order functions, passing functions around](#passing)
 
-<a name="recipe"/>
+
 ## How to read a recipe
+<a name="recipe"/>
+We can think about programming as 'giving instructions', the special thing about programming is that our target for these instructions is a (dumb) machine. 
+A different case of 'giving instructions' is found by looking at cooking recipes. 
+
+In recipes the target is (intelligent) human. Although a human and a machine require very different instructions there are some similarities between instructions aimed at them.
+
+
+Let us take a look at a simple recipe for making a fruit smoothie:
+```
+Step 1: Peel 2 bananas and mash them
+Step 2: Peel 3 oranges, squeeze out the juice
+Step 3: Clean and slice 10 strawberries
+Step 4: Blend the banana mash, orange juice and the sliced strawberries together
+
+Enjoy!
+```
+
 
 <a name="anatomy"/>
 ## Anatomy of a function
