@@ -64,8 +64,8 @@ As we can see, our recipe got a lot longer by 'expanding' the sub-instructions i
 
 
 Think of the verbs we encountered in the original recipes. They are like 'sub-instructions' that are defined somewhere else (like a different cookbook or inside your mind). This is exactly what functions are in programming. 
-Take a look at the verbs and notice how most of them 'act on' **something** and then produce a _result_. 
-The verb 'Peel' can 'act on' **banana** and then produce a _Peeled banana_. 
+Take a look at the verbs and notice how most of them 'act on' **something** and then produce a **_result_**. 
+The verb 'Peel' can 'act on' **banana** and then produce a **_peeled banana_**. 
 Maybe you know how to juggle, you juggle something (knives, flaming torches or chainsaws) to produce a loud applause.
 
 Most verbs can be described using this pattern so let's come up with some names for the various parts that make up a 'sub-instruction' (which we will now call functions):
@@ -76,10 +76,27 @@ Most verbs can be described using this pattern so let's come up with some names 
 
 It's as simple as that! We will get to code soon enough but before you continue spent some time on the following exercises:
 
-> _Ex 1. Write down 10 examples of functions you encounter in real life, giver their *name, arguments (if any) and result*_
+> _Ex 1. Write down 10 examples of functions you encounter in real life, **give their name, arguments (if any) and result**_
 
 <a name="anatomy"/>
 ## Anatomy of a function
+
+Now that we have looked at recipes we will switch to javascript. Instead of peeling bananas (quite hard to do in javascript) we will look at the simple case of increasing a given number by one. Before we go to the code let's determine the parts of the function we need:
+
+- Our function needs a name, 'increase' seems to be a good choice
+- It does have an argument, the number we want to increase
+- For the result of the function we will want to produce the number we got as an argument but increased by one
+
+> This case is simple, but writing stuff like this down will help you with complex functions later.
+
+With this 'definition' of our new function **Increase** we could write an instruction like 'Increase 7'. We expect the result to be 8.
+Let's look at what **Increase** looks like in javascript.
+
+```javascript
+function increase(argument1) {
+  return (argument1 + 1);
+}
+```
 
 <a name="using"/>
 ## Using functions
