@@ -1,1 +1,4 @@
 theme: jekyll-theme-tactile
+title: "Javascript Function tutorial"
+description: "An introduction to functions in javascript, aimed at beginners."
+show_downloads: "false"
