@@ -115,7 +115,7 @@ function increase(num) { // name and arguments
 ```
 Now we know how to define a function but what does it all mean? It might be helpfull to see how we would use this function in our code. Let's say we need to increase the number 5 in our code, we would write
 ```javascript
-increase(5)
+increase(5);
 ```
 When we use a function like this we talk about 'calling' the function. We have to provide it a value for ```num``` which then becomes available for the function to work this. You can see clearly how this works by replacing the value directly in the function definition.
 
