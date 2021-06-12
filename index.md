@@ -25,27 +25,23 @@ We will start by discussing a real life analogy of functions in order to illustr
 
 ## How to read a recipe
 <a name="recipe"/>
-We can think about programming as 'giving instructions', the special thing about programming is that our target for these instructions is a (dumb) machine. 
+We can think about programming as 'giving instructions', where our target for these instructions is a (dumb) machine. 
 A different case of 'giving instructions' is found by looking at cooking recipes. 
 
 In recipes the target is an (intelligent) human. Although a human and a machine require very different instructions there are some similarities between instructions aimed at them.
 
 
-Let us take a look at a simple recipe for making a fruit smoothie:
+Let us take a look at a simple recipe for making a fruit smoothie
 ```
 Step 1: Peel 2 bananas and mash them
 Step 2: Peel 3 oranges, squeeze out the juice
 Step 3: Clean and slice 10 strawberries
 Step 4: Blend the banana mash, orange juice and\
   the sliced strawberries together until smooth
-
-Enjoy!
 ```
 
-As we can see this recipe is very short and free-form, it is something that a human (probably) will understand. 
-The way it is written it assumes some things, such as assuming its reader knows how to peel, clean and blend different kinds of fruits. To most humans this will be obvious and maybe even trivial.
-
-A child trying out this recipe might have trouble following the steps since it is missing this knowledge, for this child we can make the recipe more verbose like this:
+As we can see this recipe is very consice, it is something that a human (probably) will understand. 
+The way it is written assumes the reader knows how to peel, clean and blend different kinds of fruits. To most humans this will be obvious and maybe even trivial but a child trying out this recipe might have trouble following the steps. For this child we can make the recipe more verbose like this:
 
 ```
 Step 1.a: Take 2 bananas
@@ -63,23 +59,20 @@ Step 3.b: Using a knife cut of the top just below the stem
 Step 3.c: Cut the cleaned strawberries into 4 parts
 Step 4.a: Take the banana mash, orange juice and sliced strawberries
 Step 4.b: Put everything into a blender and let it run until smooth
-
-Enjoy!
 ```
-As we can see, our recipe got a lot longer by 'expanding' the instructions for slicing and other operations. It would be very impractical to write all reciped this way, cookbooks would be way longer and recipes would contain a lot of repetitive steps. There are [8 different approaches to peeling a banana on wikiHow](https://www.wikihow.com/Peel-a-Banana) so the details may vary between cooks.
+As we can see, our recipe got a lot longer by 'expanding' the instructions for slicing and other operations into the recipe. It would be very impractical to write recipes this way, cookbooks would be way longer and recipes would contain a lot of repetitive steps. There are [8 different approaches to peeling a banana on wikiHow](https://www.wikihow.com/Peel-a-Banana) so the details may vary between cooks or might even change over time. This is why in normal cookbooks these verbs are considered to be understood without showing the steps to execute them.
 
-So we might think of the verbs we encounter in the original recipes like 'sub-instructions' that are defined somewhere else. This is exactly what functions are as we will see later. Notice how most verbs 'act on' *something* and then produce a _result_ like the verb 'Peel' can 'act on' *banana* and then produce a _Peeled banana_. 
+Think of the verbs we encountered in the original recipes like 'sub-instructions' that are defined somewhere else (like a different cookbook or inside your mind). This is exactly what functions are in programming. Take a look at the verbs and notice how most of them 'act on' *something* and then produce a _result_. For instance, the verb 'Peel' can 'act on' *banana* and then produce a _Peeled banana_. Maybe you know how to juggle, you juggle something (knives, flaming torches or chainsaws) to produce a loud applause.
 
-Maybe you know how to juggle, you juggle something (knives, flaming torches or chainsaws) to produce a loud applause. Most verbs can be described using this pattern so let's come up with some names for the various parts that make up a 'sub-instruction' (which we will now call functions):
+Most verbs can be described using this pattern so let's come up with some names for the various parts that make up a 'sub-instruction' (which we will now call functions):
 
-- A Function has a *name* (or identifier). E.g. 'Peel' and 'Juggle'
-- A Functions may 'act on' some (or multiple) thing, we call this the *arguments*. E.g. 'Banana' or 'Knives'.
-  - _Some function do not 'act on' anything but just produce results. E.g 'Smiling'_
-- A Function produces a *result*, this may be an effect like 'knives being thrown in a pattern' or it may be a thing like 'Peeled banana' 
+- A Function has a *name* (or identifier). E.g. 'Peel' and 'Juggle.'
+- A Functions may 'act on' some (or multiple) thing, we call this the *arguments*. E.g. 'Banana' or 'Knives'. _Some function do not 'act on' anything but just produce results (e.g 'Smiling')._
+- A Function produces a *result*, this may be an effect like 'knives being thrown in a pattern' or it may be a thing like 'Peeled banana'. 
 
 I hope this made sense, even tough it's a bit artifical this analogy work pretty well to get a feel for functions without thinking about code yet. We will get to code soon enough but before continueing spent some time on the following exercises:
 
-_Ex 1. Write down 10 examples of functions you encounter in real life, giver their *name, arguments (if any) and result*_
+> _Ex 1. Write down 10 examples of functions you encounter in real life, giver their *name, arguments (if any) and result*_
 
 <a name="anatomy"/>
 ## Anatomy of a function
