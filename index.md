@@ -28,7 +28,7 @@ We will start by discussing a real life analogy of functions in order to illustr
 We can think about programming as 'giving instructions', the special thing about programming is that our target for these instructions is a (dumb) machine. 
 A different case of 'giving instructions' is found by looking at cooking recipes. 
 
-In recipes the target is (intelligent) human. Although a human and a machine require very different instructions there are some similarities between instructions aimed at them.
+In recipes the target is an (intelligent) human. Although a human and a machine require very different instructions there are some similarities between instructions aimed at them.
 
 
 Let us take a look at a simple recipe for making a fruit smoothie:
@@ -36,11 +36,33 @@ Let us take a look at a simple recipe for making a fruit smoothie:
 Step 1: Peel 2 bananas and mash them
 Step 2: Peel 3 oranges, squeeze out the juice
 Step 3: Clean and slice 10 strawberries
-Step 4: Blend the banana mash, orange juice and the sliced strawberries together
+Step 4: Blend the banana mash, orange juice and\
+  the sliced strawberries together until smooth
 
 Enjoy!
 ```
 
+As we can see this recipe is very short and free-form, it is something that a human (probably) will understand. 
+The way it is written it assumes some things, such as assuming its reader knows how to peel, clean and blend different kinds of fruits. To most humans this will be obvious and maybe even trivial.
+
+A child trying out this recipe might have trouble following the steps since it is missing this knowledge, for this child we can make the recipe more verbose like this:
+
+```
+Step 1.a: Take 2 bananas
+Step 1.b: Remove the peel of the bananas by snapping off the stem and pulling downwards
+Step 1.c: Put the peeled bananas in a bowl and using a fork to push them down until they become somewhat liquid
+Step 2.a: Take 3 oranges
+Step 2.b: Using a knife remove the skin of the orange without cutting into the flesh
+Step 2.c: cut the peeled oranges in half and use a juicer to collect the juice
+Step 3.a: Take 10 strawberries
+Step 3.b: Using a knife cut of the top just below the stem
+Step 3.c: Cut the cleaned strawberries into 4 parts
+Step 4.a: Take the banana mash, orange juice and sliced strawberries
+Step 4.b: Put everything into a blender and let it run until smooth
+
+Enjoy!
+```
+As we can see, our recipe got a lot longer by 'expanding' the instructions for slicing and other operations. It would be very impractical to write all reciped this way, cookbooks would be way longer and recipes would contain a lot of repetitive steps. There are [8 different approaches to peeling a banana on wikiHow)(https://www.wikihow.com/Peel-a-Banana)
 
 <a name="anatomy"/>
 ## Anatomy of a function
