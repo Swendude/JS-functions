@@ -99,10 +99,33 @@ Let's look at what **increase** looks like in javascript.
 
 ```javascript
 function increase(num) {
-  return (num + 1);
+  const increased = num + 1;
+  return increased;
 }
 ```
-This is called a **function definition**, and that's exactly what it does there is no code that gets executed here. It defines a function named 'increase' that has a single argument named 'num', the steps needed to execute this function are defined within the curly brackets following the name and arguments. We call the steps between curly brackets the **function body**. A functions name and it's arguments are called the **function signature**. 
+This is called a **function definition**, and that's exactly what it does. The definition uses the ```function``` keyword followed by the function name 'increase' that has a single argument named 'num' defined in the parenthesis. The steps needed to execute this function are defined within the curly brackets following the name and arguments. We call the steps between curly brackets the **function body**. The combination of a function's name and arguments is called the **function signature** (```increase(num)``` in this case). The keyword ```return``` will always be the last step in a function's execution and specifies the result of this function.
+
+```javascript
+// function definition
+function increase(num) { // name and arguments
+  // function body
+  const increased = num + 1;
+  return (increased); // return statement, function body code below this will not be executed
+}
+```
+Now we know how to define a function but what does it all mean? It might be helpfull to see how we would use this function in our code. Let's say we need to increase the number 5 in our code, we would write
+```javascript
+increase(5)
+```
+When we use a function like this we talk about 'calling' the function. We have to provide it a value for ```num``` which then becomes available for the function to work this. You can see clearly how this works by replacing the value directly in the function definition.
+
+```javascript
+function increase(5) { 
+  const increased = 5 + 1;
+  return (increased); // return statement, function body code below this will not be executed
+}
+```
+
 
 <a name="using"/>
 ## Using functions
