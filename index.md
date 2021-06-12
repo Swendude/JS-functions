@@ -1,20 +1,25 @@
 # Functions in Javascript
 
-In this tutorial you will learn about functions in javascript, we will start of discussing a real life analogy of functions and start to build a conceptual understanding of what we try to accomplish. Next we dive into what a function looks like and how you can use it in your code. Then we will examine how the usage of functions might benefit the code we write and develop. Finally we wrap up with an sneak peak at some advanced usages of functions to get you excited about the possibilities. Below that you will find a short summary of the contents that you can use to quickly review the material or to remind yourself of what you learned.
+In this tutorial you will learn about functions in javascript. Professional developers use functions all the time. They are a fundamental concept of coding in javascript (and most other languages). Take your time going trough this content to really get a firm graps on this concept, it will pay off.
 
-Most developers use functions on a day to day basis for their job. They are a fundamental concept of coding in javascript. Take your time going trough this content and put effort in building a model of what functions are and how they work.
+### Structure of this tutorial
+We will start by discussing a real life analogy of functions in order to illustrate what we want to accomplish. Next, we dive into what a function looks like and how you can use it in your code. In the third part we will look at the benefits of using functions. The final part goes into advanced usage of functions, consider this material a sneak peek of how modern javascript uses functions.
 
-This tutorial assumes you are familiar with the following concepts. If you feel unsure about any of these take some time to review the before continuing this tutorial.
+_**This tutorial assumes you are familiar with the following concepts. If you feel unsure about any of these take some time to review the before continuing this tutorial.**_
 
-- How to define and use variables
-- Built-in datatypes (Bools, numbers, strings, objects)
-- Boolean conditions, if-else statements
+- _How to define and use variables_
+- _Built-in datatypes (Bools, numbers, strings, objects)_
+- _Boolean conditions, if-else statements_
 
-##### Table of Contents  
+## Table of Contents  
 [How to read a recipe](#recipe)  
+
 [Anatomy of a function](#anatomy)
+
 [Using functions](#using)
+
 [Benefits of functions](#benefits)
+
 [Higher order functions, passing functions around](#passing)
 
 <a name="recipe"/>
