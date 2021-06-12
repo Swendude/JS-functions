@@ -60,10 +60,13 @@ Step 3.c: Cut the cleaned strawberries into 4 parts
 Step 4.a: Take the banana mash, orange juice and sliced strawberries
 Step 4.b: Put everything into a blender and let it run until smooth
 ```
-As we can see, our recipe got a lot longer by 'expanding' the instructions for slicing and other operations into the recipe. It would be very impractical to write recipes this way, cookbooks would be way longer and recipes would contain a lot of repetitive steps. Another disadvantage of this method is that every cook has their own method for 'slicing' and 'peeling', as seen by the [8 different approaches to peeling a banana on wikiHow](https://www.wikihow.com/Peel-a-Banana). Techniques might change over time (somebody invents a Banana-peeler 2000), rendering books obsolete or outdated. 
+As we can see, our recipe got a lot longer by 'expanding' the sub-instructions into the recipe. It would be very impractical to write recipes this way, cookbooks would have to be way longer and recipes would contain a lot of repetitive steps. Another disadvantage of this method is that every cook has their own preferred method for 'slicing' and 'peeling', as seen by the [8 different approaches to peeling a banana on wikiHow](https://www.wikihow.com/Peel-a-Banana). Techniques might change over time (somebody invents a Banana-peeler 2000), rendering books obsolete or outdated. 
 
 
-Think of the verbs we encountered in the original recipes. They are like 'sub-instructions' that are defined somewhere else (like a different cookbook or inside your mind). This is exactly what functions are in programming. Take a look at the verbs and notice how most of them 'act on' *something* and then produce a _result_. For instance, the verb 'Peel' can 'act on' *banana* and then produce a _Peeled banana_. Maybe you know how to juggle, you juggle something (knives, flaming torches or chainsaws) to produce a loud applause.
+Think of the verbs we encountered in the original recipes. They are like 'sub-instructions' that are defined somewhere else (like a different cookbook or inside your mind). This is exactly what functions are in programming. 
+Take a look at the verbs and notice how most of them 'act on' **something** and then produce a _result_. 
+The verb 'Peel' can 'act on' **banana** and then produce a _Peeled banana_. 
+Maybe you know how to juggle, you juggle something (knives, flaming torches or chainsaws) to produce a loud applause.
 
 Most verbs can be described using this pattern so let's come up with some names for the various parts that make up a 'sub-instruction' (which we will now call functions):
 
@@ -71,7 +74,7 @@ Most verbs can be described using this pattern so let's come up with some names 
 - A Function may 'act on' some (or multiple) things, we call this the *arguments*. E.g. 'Banana' or 'Knives'. _Some function do not 'act on' anything but just produce results (e.g 'Smiling')._
 - A Function produces a *result*, this may be an effect like 'knives being thrown in a pattern' or it may be a thing like 'Peeled banana'. 
 
-I hope this made sense, even tough it's a bit artifical this analogy work pretty well to get a feel for functions without thinking about code yet. We will get to code soon enough but before continueing spent some time on the following exercises:
+It's as simple as that! We will get to code soon enough but before you continue spent some time on the following exercises:
 
 > _Ex 1. Write down 10 examples of functions you encounter in real life, giver their *name, arguments (if any) and result*_
 
