@@ -151,11 +151,12 @@ console.log(should_be_seven); // logs 7
 
 // We don't have to use 6 as input
 const should_be_nine = increase(8);
+
 // We can even pass variables as arguments
 const should_be_eight = increase(should_be_seven);
-console.log(should_be_seven); // logs 7
-console.log(should_be_eight);
-console.log(should_be_nine);
+
+console.log(should_be_eight); // logs 8
+console.log(should_be_nine); // logs 9
 ```
 
 ### Beyond increase
