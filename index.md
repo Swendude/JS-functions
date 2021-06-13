@@ -92,7 +92,7 @@ Now that we have looked at recipes we will switch to javascript. Instead of peel
 
 > This case is simple, but writing stuff like this down will help you with complex functions later.
 
-### Defining functions
+### Defining & using functions
 
 With this 'definition' of our new function **increase** we could write an instruction like 'Increase 7'. We expect the result to be 8.
 Let's look at what **increase** looks like in javascript.
@@ -103,7 +103,15 @@ function increase(num) {
   return increased;
 }
 ```
-This is called a **function definition**, and that's exactly what it does. The definition uses the ```function``` keyword followed by the function name 'increase' that has a single argument named 'num' defined in the parenthesis. The steps needed to execute this function are defined within the curly brackets following the name and arguments. We call the steps between curly brackets the **function body**. The combination of a function's name and arguments is called the **function signature** (```increase(num)``` in this case). The keyword ```return``` will always be the last step in a function's execution and specifies the result of this function.
+Some terminology and remarks:
+- This whole code block called a **function definition**, and that's exactly what it does. Javascript will not execute these lines of code when it encounters a definition, it just says 'These are the steps for **increase**, I should remember them'
+- The definition uses the ```function``` keyword, it lets javascript know that a function is being defined here
+- After the ```function``` keyword the function name is defined. In this case we call the function **increase**
+- Directly following the **function name**, we specify the **arguments** between parentheses. We can choose a name for every argument we want to use, that name becomes a variable that we can provide when we call the function (we will see how we do this later). Our **increase** function only takes a single argument that we cal ```num```. We could have a function with no arguments like so ```function increase() {``` and a function with multiple arguments looks like ```function increase(num1, second_num, numberthree)```. Note that we can freely choose argument names just like we can with variables.
+- The steps needed to execute this function are defined within the curly brackets following the name and arguments. We call the steps between curly brackets the **function body**. In our **increase** function we only have to steps, but a function body can contain as many lines of javascript as you need.
+- The keyword ```return``` is used to return a value to the place where we call the function, you don't have to use a return (for functions that do not want to return anything). If javascript encounters a return when executing a function, it halts execution and returns the specified result.
+- The combination of a function's name, arguments and return type is called the **function signature** (```increase(num) returns num``` in this case). This is all the information we need to call the function later.
+
 
 ```javascript
 // function definition
@@ -125,10 +133,6 @@ function increase(5) {
   return (increased); // return statement, function body code below this will not be executed
 }
 ```
-
-
-<a name="using"/>
-## Using functions
 
 <a name="benefits"/>
 ## Benefits of functions
