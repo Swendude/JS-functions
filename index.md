@@ -124,7 +124,7 @@ _Ex 4. Write a function that takes a single string as an argument and writes 'He
 
 _Ex 5. How do the functions from ex. 3 & ex. 4 differ from **increase** and **decrease**?
 
-### Using function
+### Using functions
 
 Now we know how to define a function, we need to know how to use it. Instead of saying that we 'use' a function we should get used to the idea of 'calling' a function. 
 
@@ -195,8 +195,82 @@ Now we can use our result in the rest of our code.
 
 ### Function scope
 
+One important thing to keep in mind is **function scope**. Think of the **scope** as a list of definitions that javascript knows. These definitions can be variables, functions and some other things. They can be defined by you or come 'built-in' to javascript. So in the next piece of code:
+
+```javascript
+const life = 42;
+const greeting = 'Hello world';
+
+function sayHi() {
+  console.log('Hi!');
+}
+```
+we can say that ```life```, ```greeting``` and ```sayHi``` are **in scope** (known to javascript). If something is not in scope and you use it, you will get an error.
+
+Functions have their own scope, and anything defined in a functions body will only be available to the function code. We call the default scope that javascript uses the **global scope** and function can access that. It might help to thing that 'scope flows down, not up'. Here is an example:
+
+
+```javascript
+const life = 42;
+const greeting = 'Hello world';
+
+function talk() {
+  // this function can acces the global scope
+  console.log(greeting);
+  console.log('The Answer to the Ultimate Question of Life, the Universe, and Everything is ' + life);
+  
+  // This is defined in function scope
+  const inTalk = 'a string';
+  console.log(inTalk);
+}
+
+talk();
+console.log(inTalk); // You'll get an ReferenceError
+```
+
+Keep this in mind while working with functions! Altough you can access the global scope from within a function **it is good practice to avoid doing so, always prefer arguments when passing information to functions**.
+
+That was most of the information you need to know about functions. The real way to learn is to start writing and using your own.
+
+_Ex 6. Write a function named ```isReversed``` that takes a two strings as an argument and returns ```true``` if the strings are the reverse of each other, otherwise return ```false```_
+_Ex 7. Write a function ```isPalindrome``` that takes a single string and returns ```true``` if the string is a palindrome, otherwise return ```false``` (A palindrome is word that stays the same when you reverse it. E.g. 'racecar', 'bob' and 'Never odd or even')_
+_Ex 8. If you didn't already, write ```isPalidrome``` using ```isReversed``` inside the function body_
+_Ex 9. Name this function:_
+```javascript
+ function {TODO}(length, size) {
+   if length < size {
+     return true;
+   }
+   else {
+     return false;
+   }
+ }
+```
+
+Next we will take a look at why you would want to use functions and how to maximize the benefit you get from them.
+
 <a name="benefits"/>
 ## Benefits of functions
+
+For this part we are going to simulate a day in the life of a professional javascript developer. We work for a hip new unicorn startup called Fruits.com, they sell fruit online and business is booming. The fruit storage of the company is managed by an automated system which we have to maintain. It allows use to add fruits to stock and remove stock once we sell some fruits. Our boss aproaches us and says that he wants to improve our system, there have been some complaints from the people over at Sales about stock numbers going negative. Of course you can (or should) not have minus one banana in stock so this problem needs solving.
+
+We start looking into the problem by pulling up the relevant code in the system.
+```javascript
+// Increase stock
+cont change = getInput();
+const stock = getStockFromDatabase();
+stock = stock + change;
+saveStockToDatabase(stock);
+
+[Thousands of lines of code]
+
+// Decrease stock
+cont change = getInput();
+const stock = getStockFromDatabase();
+stock = stock - change;
+saveStockToDatabase(stock);
+```
+Don't worry about the functions ```getStockFromDatabase``` and ```SaveStockToDatabase```. They are provided by our database team and we can assume they do what they are supposed to. The ```getInput()``` function is hooked up to a panel over at Sales that will give us the amount to decrease or increase the stock.
 
 <a name="passing"/>
 ## Higher order functions, passing functions around 
