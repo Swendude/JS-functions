@@ -233,9 +233,13 @@ Keep this in mind while working with functions! Altough you can access the globa
 That was most of the information you need to know about functions. The real way to learn is to start writing and using your own.
 
 _Ex 6. Write a function named ```isReversed``` that takes a two strings as an argument and returns ```true``` if the strings are the reverse of each other, otherwise return ```false```_
+
 _Ex 7. Write a function ```isPalindrome``` that takes a single string and returns ```true``` if the string is a palindrome, otherwise return ```false``` (A palindrome is word that stays the same when you reverse it. E.g. 'racecar', 'bob' and 'Never odd or even')_
+
 _Ex 8. If you didn't already, write ```isPalidrome``` using ```isReversed``` inside the function body_
+
 _Ex 9. Name this function:_
+
 ```javascript
  function {TODO}(length, size) {
    if length < size {
@@ -250,6 +254,7 @@ _Ex 9. Name this function:_
 Next we will take a look at why you would want to use functions and how to maximize the benefit you get from them.
 
 <a name="benefits"/>
+
 ## Benefits of functions
 
 For this part we are going to simulate a day in the life of a professional javascript developer. We work for a hip new unicorn startup called Fruits.com, they sell fruit online and business is booming. The fruit storage of the company is managed by an automated system which we have to maintain. It allows use to add fruits to stock and remove stock once we sell some fruits. Our boss aproaches us and says that he wants to improve our system, there have been some complaints from the people over at Sales about stock numbers going negative. Of course you can (or should) not have minus one banana in stock so this problem needs solving.
@@ -257,15 +262,15 @@ For this part we are going to simulate a day in the life of a professional javas
 We start looking into the problem by pulling up the relevant code in the system.
 ```javascript
 // Increase stock
-cont change = getInput();
+const change = getInput();
 const stock = getStockFromDatabase();
 stock = stock + change;
 saveStockToDatabase(stock);
 
-[Thousands of lines of code]
+// [Thousands of lines of code]
 
 // Decrease stock
-cont change = getInput();
+const change = getInput();
 const stock = getStockFromDatabase();
 stock = stock - change;
 saveStockToDatabase(stock);
