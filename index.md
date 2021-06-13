@@ -108,40 +108,93 @@ Some terminology and remarks:
 
 - The definition uses the ```function``` keyword, it lets javascript know that a function is being defined here
 
-- After the ```function``` keyword the function name is defined. In this case we call the function **increase**
+- After the ```function``` keyword the function **name** is defined. In this case we call the function **increase**
 
-- Directly following the **function name**, we specify the **arguments** between parentheses. We can choose a name for every argument we want to use, that name becomes a variable that we can provide when we use the function (we will see how we do this later). Our **increase** function takes a single argument that we named ```num```. A function with no arguments look like ```function increase() {``` and a function with multiple arguments looks like ```function increase(num1, second_num, numberthree)```. Note that we can freely choose argument names just like we can with variables.
+- Directly following the function name, we specify the **arguments** between parentheses. We can choose a name for every argument we want to use, that name becomes a variable that we can provide when we use the function (we will see how we do this later). Our **increase** function takes a single argument that we named ```num```. A function with no arguments look like ```function increase() {``` and a function with multiple arguments looks like ```function increase(num1, second_num, numberthree)```. Note that we can freely choose argument names just like we can with variables.
 
 - The steps needed to execute this function are defined within the curly brackets following the name and arguments. We call the steps between curly brackets the **function body**. In our **increase** function we only have two steps, but a function body can contain as many lines of javascript as you need. Inside these lines the arguments become available to use as variables.
 
 - The keyword ```return``` is used to return a value to the place where we use the function. You don't have to use a return (for functions that do not want to return anything) but when javascript encounters a return, it halts execution and returns the specified result. ```return``` Is only available inside function bodies.
 
-- The combination of a function's name, arguments and return type is called the **function signature** (```increase(num) returns num``` in this case). This is all the information we need to call the function later.
+- The combination of a function's name, arguments and return type is called the **function signature** (```increase(number) returns number``` in this case). This is all the information we need to call the function later.
 
 _Ex 2. Write a function named **decrease** that take a single number as an argument and returns that number - 1_
+
 _Ex 3. Write a function that writes 'Hello world' to your console_
+
 _Ex 4. Write a function that takes a single string as an argument and writes 'Hello + argument' to your console_
+
 _Ex 5. How do the functions from ex. 3 & ex. 4 differ from **increase** and **decrease**?
 
 ### Using function
 
 Now we know how to define a function, we need to know how to use it. Instead of saying that we 'use' a function we should get used to the idea of 'calling' a function. 
 
-Here is how you call a function with a signature of ```increase(num) returns num``` using the argument ```5```:
+After defining our function **increase** we are going to call it with an argument of 6 (essentialy asking 'increase 6':
 ```javascript
-increase(5);
-```
-It's that easy
-
-
-When we use a function like this we talk about 'calling' the function. We have to provide it a value for ```num``` which then becomes available for the function to work this. You can see clearly how this works by replacing the value directly in the function definition.
-
-```javascript
-function increase(5) { 
-  const increased = 5 + 1;
-  return (increased); // return statement, function body code below this will not be executed
+function increase(num) {
+  const increased = num + 1;
+  return increased;
 }
+
+increase(6);
 ```
+
+Notice how the last line 'fits' onto the function definition ```increase(num)```. Altough the function is being called we are not doing anything with the result of this function, let's change our code to store the result in a variable and logging that to our console:
+
+```javascript
+function increase(num) {
+  const increased = num + 1;
+  return increased;
+}
+
+const should_be_seven = increase(6);
+console.log(should_be_seven); // logs 7
+
+// We don't have to use 6 as input
+const should_be_nine = increase(8);
+// We can even pass variables as arguments
+const should_be_eight = increase(should_be_seven);
+console.log(should_be_seven); // logs 7
+console.log(should_be_eight);
+console.log(should_be_nine);
+```
+
+### Beyond increase
+Let's switch it up a little and look at a function with multiple arguments, our function name will be ```biggestSquare``` it has two arguments named ```x``` and ```y``` and will log the largest argument squared. 
+
+```javascript
+function biggestSquare(x, y) {
+  if (x > y) {
+    console.log(x * x);
+  }
+  else {
+    console.log(y * y);
+  }
+}
+
+const squared = biggestSquare(3, 9) // should log 81 (the square of 9)
+console.log(squared); // logs 'undefined'
+```
+
+Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very usefull for us as we can not 'reach' the result of the function. When we log the result we see that it return a `undefined` since nothing has been returned. Let's change our function to use ```return```
+
+```javascript
+function biggestSquare(x, y) {
+  if (x > y) {
+   return x * x;
+  }
+  else {
+    return y * y;
+  }
+}
+
+const squared = biggestSquare(3, 9) 
+console.log(squared); // logs 81
+```
+Now we can use our result in the rest of our code.
+
+### Function scope
 
 <a name="benefits"/>
 ## Benefits of functions
