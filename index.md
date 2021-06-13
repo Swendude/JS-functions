@@ -16,8 +16,6 @@ We will start by discussing a real life analogy of functions in order to illustr
 
 [Anatomy of a function](#anatomy)
 
-[Using functions](#using)
-
 [Benefits of functions](#benefits)
 
 [Higher order functions, passing functions around](#passing)
