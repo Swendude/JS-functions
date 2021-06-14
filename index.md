@@ -404,6 +404,54 @@ _Ex 11. Go trough some of the code you wrote in the past, can you spot any oppor
 
 <a name="expressions"/>
 
-## Function expressions
+## Arrow functions
 
-function expressions
+The last thing we have to discuss are **arrow functions**. They are used to declare functions in a shorter way, we define a function ``triple(number) returns number`` that triples its argument using a 'normal' function decleration: 
+
+```javascript
+function triple(num) {
+  return num * 3;
+}
+
+console.log(triple(3)); // returns 9
+```
+
+Let's define it as an arrow function: 
+
+```javascript
+var triple = (num) => {
+    return num * 3;
+  };
+  
+console.log(triple(4)); // returns 12
+```
+What did we do?
+
+- The  ```function``` keyword  and functon name are gone
+- The arguments go in between the parentheses before the arrow (```=>```) followed by the function body. 
+- We stored this function in a variable called ```triple```. The function itself has no name, we only have variable pointing to the function that we chose to call ```triple```.
+
+Arrow functions can be even shorter if:
+
+  - it has a single argument, then you can omit the parentheses. If you have no arguments you do need to add empty parentheses:
+      ```javascript
+      var triple = num => {
+        return num * 3;
+      };
+      
+      var sayHi = () => {console.log('hi')};
+      ``` 
+  - its function body contains only a single statement **that is a return statement** you can omit ```return```:
+       ```javascript
+      var triple = num => num * 3;
+      ```
+ Arrow functions have some limitiations that you will see later, but they are a great tool if you want to quickly define a function without giving it a name.
+ This is handy when you want to use a **higher order function**, such as a function that takes a function as arguments. 
+ 
+ A usefull example is the ```Array.map()``` function (it is a function that belongs to an array, you'll learn more about this later). It takes a function as an argument and applies that to every element of the array. The function arguement should itself have only one argument and should return a value to put in the new array.
+ 
+ ```javascript
+ var numbers = [1,5,7,13];
+ var triple_numbers = numbers.map(num => num * 3)
+ ```
+      
