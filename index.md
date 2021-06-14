@@ -18,7 +18,7 @@ We will start by discussing a real life analogy of functions in order to illustr
 
 [Benefits of functions](#benefits)
 
-[Higher order functions, passing functions around](#passing)
+[Function expressions](#expressions)
 
 
 <a name="recipe"/>
@@ -273,7 +273,7 @@ For this part of this tutorial we are going to simulate a day in the life of a p
 
 The storage of the company is managed by an automated system which we have to maintain. It allows use to increase and decrease the amount of apples (the stock) in the storage. So when _fruits.com_ sells some apples, the system can be updates to reflect the stock.
 
-Our boss aproaches us and says that he wants to improve the system, there have been some complaints about the stock number going negative. Of course the system should not allow to have minus one apples in stock. Also the available storage should not exceed 100 apples, as there is no space for that and the apples would spoil outside of storage. 
+Our boss aproaches us and says he wants to improve the system, there have been complaints about the stock number going negative. Of course the system should not allow to have minus one apples in stock. Also, the available storage should not exceed 100 apples, as there is no space for that and the apples would spoil outside of storage. 
 
 We start looking into the problem by pulling up the relevant code in the system.
 
@@ -293,22 +293,25 @@ stock = stock + input;
 saveStockToDatabase(stock);
 ```
 
-Don't worry about the functions ```getStockFromDatabase() returns number``` and ```SaveStockToDatabase(number) returns nothing```. They are provided by our database team and we can assume they do what they are supposed to (return a the current stock as a number from the database and write a new number to the database respectively). These pieces of code are executed when an apple is sold or delivered over at _fruits.com_. 
+These pieces of code are executed when an apple is sold or delivered over at _fruits.com_. They are in different locations in our code since there are multiple situations where we need to update the stock.
 
-The same goes for the function ```getInput() returns number```, that gives us the amount to change the code by. The result of ```getInput() returns number``` is the change we want, so in the case of a sale its result will be negative and in the case of a delivery it will be positive (this is legacy code from the developer before you, no one knows how to change this).
+Don't worry about the functions ```getStockFromDatabase() returns number``` and ```SaveStockToDatabase(number) returns nothing```. They are provided by our database team and we can assume they do what they are supposed to (return the current stock as a number from the database and write a new number to the database respectively). 
 
-We implement the check out boss asked for:
+The same goes for the function ```getInput() returns number```, that gives us the intended change to the stock. The result of ```getInput() returns number``` is the change, so in the case of a sale its result will be negative, in the case of a delivery it will be positive (this is legacy code from the developer before you, nobody knows how to change this).
+
+We implement the checks to make our boss happy:
 
 ```javascript
 // Increase stock
 const input = getInput();
 let stock = getStockFromDatabase();
 stock = stock + input;
+// Check if the stock is valid
 if (stock > 0 && stock <= 100) {
   saveStockToDatabase(stock);
 }
 else {
-  console.log('stock not updated');
+  console.log('stock not updated, result was invalid');
 }
 
 // [Thousands of lines of code]
@@ -317,17 +320,90 @@ else {
 const input = getInput();
 let stock = getStockFromDatabase();
 stock = stock + input;
+// Check if the stock is valid
 if (stock > 0 && stock <= 100) {
   saveStockToDatabase(stock);
 }
 else{
-  console.log('stock not updated');
+  console.log('stock not updated, result was invalid');
 }
 ```
-Now we are sure our stock stays within reasonable limits, otherwise we log a nice error message to let the users know the operation failed.
 
+Now we guarantee that our stock stays within reasonable limits. If the stock goes beyond these limits we log an error message to the user and we do not update the database.
 
+As you might have noticed, there is a lot of duplicate code here. Duplication of code is considered a bad thing, which is stated as the **DRY** principle (Don't Repeat Yourself). The code we have here is very **WET** (Write Everything Twice), which is a bad. 
 
-<a name="passing"/>
+_Ex 10. Why do you think code duplication is a bad thing?_
 
-## Higher order functions, passing functions around 
+Two months pass by and _fruits.com_ has attracted serious funding. There is enough money to increase storage capacity which is now limited to 300 apples.
+Our boss tells us to update the software to reflect this.
+
+We dive back into the code, spent half and hour to search for all the places where we update the stock and modify the code. It's a quick fix:
+
+```javascript
+// Increase stock
+const input = getInput();
+let stock = getStockFromDatabase();
+stock = stock + input;
+// Check if the stock is valid
+if (stock > 300 && stock <= 100) {
+  saveStockToDatabase(stock);
+}
+else {
+  console.log('stock not updated, result was invalid');
+}
+
+// [Thousands of lines of code]
+
+// Decrease stock
+const input = getInput();
+let stock = getStockFromDatabase();
+stock = stock + input;
+// Check if the stock is valid
+if (stock > 0 && stock <= 300) {
+  saveStockToDatabase(stock);
+}
+else{
+  console.log('stock not updated, result was invalid');
+}
+```
+
+Yesterday was a rough night, and we made a pretty big mistake here. An angry boss shows up, complaining that deliveries are not being updates to the system.
+
+As you can see in this (silly) example, maintaining code is hard an error prone. We shouldn't make it any harder than it needs to be, we should change this code into a function.
+
+```javascript
+function changeStock(change) {
+  let stock = getStockFromDatabase();
+  stock = stock + input;
+  // Check if the stock is valid
+  if (stock > 0 && stock <= 300) {
+    saveStockToDatabase(stock);
+  }
+  else {
+    console.log('stock not updated, result was invalid');
+  }
+}
+
+// Increase stock
+const input = getInput();
+changeStock(input);
+
+// [Thousands of lines of code]
+
+// Decrease stock
+const input = getInput();
+changeStock(input);
+```
+
+Our code is nice and DRY now. The shared logic now has single place where we can modify it. Also notice how our two pieces of codes are much easier to understand, the use of functions can make code 'self-documenting'. You do not need to know the definition of ```changeStock(number) returns nothing```to understand what this code is doing.
+
+The 'DRY-ness' and readability of functions allow developers to better maintain and understand code. Functions also can be used to 'isolate' complex behaviour so you can deal with it without modyfing other code.
+
+_Ex 11. Go trough some of the code you wrote in the past, can you spot any opportunity to make it more DRY? Did it improve the readability of your code?
+
+<a name="expressions"/>
+
+## Function expressions
+
+function expressions
