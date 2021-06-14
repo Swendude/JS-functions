@@ -400,7 +400,7 @@ Our code is nice and DRY now. The shared logic now has single place where we can
 
 The 'DRY-ness' and readability of functions allow developers to better maintain and understand code. Functions also can be used to 'isolate' complex behaviour so you can deal with it without modyfing other code.
 
-_Ex 11. Go trough some of the code you wrote in the past, can you spot any opportunity to make it more DRY? Did it improve the readability of your code?
+_Ex 11. Go trough some of the code you wrote in the past, can you spot any opportunity to make it more DRY? Did it improve the readability of your code?_
 
 <a name="expressions"/>
 
