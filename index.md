@@ -253,8 +253,8 @@ _Ex 8. If you didn't already, write ```isPalidrome``` using ```isReversed``` ins
 _Ex 9. Name this function:_
 
 ```javascript
- function {TODO}(length, size) {
-   if length < size {
+ function {TODO}(width, height) {
+   if width < height {
      return true;
    }
    else {
