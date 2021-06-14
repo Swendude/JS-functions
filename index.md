@@ -25,7 +25,7 @@ We will start by discussing a real life analogy of functions in order to illustr
 
 ## How to read a recipe
 We can think about programming as 'giving instructions', where our target for these instructions is a (dumb) machine. 
-A similar case of 'giving instructions' can be in cooking recipes. 
+A similar case of 'giving instructions' can be found in cooking recipes. 
 
 In recipes the target is an (intelligent) human. Although a human and a machine require very different instructions there are some similarities between instructions aimed at them.
 
@@ -63,7 +63,8 @@ As we can see, our recipe got a lot longer by 'expanding' the sub-instructions i
 
 ### Verbs as functions
 
-Think of the verbs we encountered in the original recipes. They are like 'sub-instructions' that are defined somewhere else (like a different cookbook or inside your mind). This is exactly what functions are in programming. 
+You can think of the verbs we encountered in the original recipes as 'sub-instructions' that are defined somewhere else (like a different cookbook or inside your mind). This is exactly what functions are in programming. 
+
 Take a look at the verbs and notice how most of them 'act on' **something** and then produce a **_result_**. 
 The verb 'Peel' can 'act on' **banana** and then produce a **_peeled banana_**. 
 Maybe you know how to juggle, you juggle something (knives, flaming torches or chainsaws) to produce a loud applause.
@@ -74,7 +75,7 @@ Most verbs can be described using this pattern so let's come up with some names 
 - A Function may 'act on' some (or multiple) things, we call this the *arguments*. E.g. 'Banana' or 'Knives'. _Some function do not 'act on' anything but just produce results (e.g 'Smiling')._
 - A Function produces a *result*, this may be an effect like 'knives being thrown in a pattern' or it may be a thing like 'Peeled banana'. 
 
-It's as simple as that! We will get to code soon enough but before you continue spent some time on the following exercises:
+It's as simple as that! We will get to code soon enough but before you continue spend some time on the following exercise:
 
 _Ex 1. Write down 10 examples of functions you encounter in real life, **give their name, arguments (if any) and result**_
 
@@ -112,9 +113,9 @@ Some terminology and remarks:
 
 - The steps needed to execute this function are defined within the curly brackets following the name and arguments. We call the steps between curly brackets the **function body**. In our **increase** function we only have two steps, but a function body can contain as many lines of javascript as you need. Inside these lines the arguments become available to use as variables.
 
-- The keyword ```return``` is used to return a value to the place where we use the function. You don't have to use a return (for functions that do not want to return anything) but when javascript encounters a return, it halts execution and returns the specified result. ```return``` Is only available inside function bodies.
+- The keyword ```return``` is used to define the result of the function. When we use this function somewhere else in our code, we will retrieve the value specified by ```return```. You don't have to use a return (for functions that do not want to return anything) but when javascript encounters a return, it halts execution and returns the specified result. ```return``` Is only available inside function bodies.
 
-- The combination of a function's name, arguments and return type is called the **function signature** (```increase(number) returns number``` in this case). This is all the information we need to call the function later.
+- The combination of a function's name, arguments and return type is called the **function signature** (```increase(number) returns number``` in this case). This is all the information we need to use the function later.
 
 _Ex 2. Write a function named **decrease** that take a single number as an argument and returns that number - 1_
 
@@ -122,7 +123,7 @@ _Ex 3. Write a function that writes 'Hello world' to your console_
 
 _Ex 4. Write a function that takes a single string as an argument and writes 'Hello + argument' to your console_
 
-_Ex 5. How do the functions from ex. 3 & ex. 4 differ from **increase** and **decrease**?
+_Ex 5. How do the functions from ex. 3 & ex. 4 differ from **increase** and **decrease**?_
 
 ### Using functions
 
@@ -160,7 +161,7 @@ console.log(should_be_nine); // logs 9
 ```
 
 ### Beyond increase
-Let's switch it up a little and look at a function with multiple arguments, our function name will be ```biggestSquare``` it has two arguments named ```x``` and ```y``` and will log the largest argument squared. 
+Let's switch it up a little and look at a function with multiple arguments, our function name will be ```biggestSquare``` it has two arguments named ```x``` and ```y``` and it will log the largest argument squared. 
 
 ```javascript
 function biggestSquare(x, y) {
@@ -176,7 +177,7 @@ const squared = biggestSquare(3, 9) // should log 81 (the square of 9)
 console.log(squared); // logs 'undefined'
 ```
 
-Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very usefull for us as we can not 'reach' the result of the function. When we log the result we see that it return a `undefined` since nothing has been returned. Let's change our function to use ```return```
+Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very usefull for us as we can not 'reach' the result of the function. When we log the result we see that it returns an `undefined` since nothing has been returned. Let's change our function to use ```return```
 
 ```javascript
 function biggestSquare(x, y) {
@@ -204,10 +205,20 @@ const greeting = 'Hello world';
 function sayHi() {
   console.log('Hi!');
 }
-```
-we can say that ```life```, ```greeting``` and ```sayHi``` are **in scope** (known to javascript). If something is not in scope and you use it, you will get an error.
 
-Functions have their own scope, and anything defined in a functions body will only be available to the function code. We call the default scope that javascript uses the **global scope** and function can access that. It might help to thing that 'scope flows down, not up'. Here is an example:
+
+// This all works, we defined them so javascript has them in scope
+console.log(life);
+console.log(greeting);
+sayHi();
+
+// This won't work because `something` has not been defined anywhere
+console.log(something);
+
+```
+we can say that ```life```, ```greeting``` and ```sayHi``` are **in scope** (known to javascript). If something is not in scope and you use it (see ```something``` above), you will get an error.
+
+Functions have their own scope, and anything defined in a functions body will only be available to the function code. We call the default scope that javascript uses the **global scope** and function can access that. It might help to think that 'scope flows down into functions, but not up to global'. Here is an example:
 
 
 ```javascript
@@ -257,14 +268,18 @@ Next we will take a look at why you would want to use functions and how to maxim
 
 ## Benefits of functions
 
-For this part we are going to simulate a day in the life of a professional javascript developer. We work for a hip new unicorn startup called Fruits.com, they sell fruit online and business is booming. The fruit storage of the company is managed by an automated system which we have to maintain. It allows use to add fruits to stock and remove stock once we sell some fruits. Our boss aproaches us and says that he wants to improve our system, there have been some complaints from the people over at Sales about stock numbers going negative. Of course you can (or should) not have minus one banana in stock so this problem needs solving.
+For this part of this tutorial we are going to simulate a day in the life of a professional javascript developer. We work for a hip new unicorn startup called __fruits.com__, they sell fruit online and business is booming. Currently __fruits.com__ only sells apples (it's a startup).
+
+The storage of the company is managed by an automated system which we have to maintain. It allows use to increase and decrease the amount of apples (the stock) in the storage. So when __fruits.com__ sells an apple, the system can be updates to reflect the sale.
+
+Our boss aproaches us and says that he wants to improve the system, there have been some complaints about the stock number going negative. Of course you can (or should) not have minus one banana in stock so this problem needs solving.
 
 We start looking into the problem by pulling up the relevant code in the system.
+
 ```javascript
 // Increase stock
-const change = getInput();
 const stock = getStockFromDatabase();
-stock = stock + change;
+stock = stock + 1;
 saveStockToDatabase(stock);
 
 // [Thousands of lines of code]
@@ -272,10 +287,10 @@ saveStockToDatabase(stock);
 // Decrease stock
 const change = getInput();
 const stock = getStockFromDatabase();
-stock = stock - change;
+stock = stock - 1;
 saveStockToDatabase(stock);
 ```
-Don't worry about the functions ```getStockFromDatabase``` and ```SaveStockToDatabase```. They are provided by our database team and we can assume they do what they are supposed to. The ```getInput()``` function is hooked up to a panel over at Sales that will give us the amount to decrease or increase the stock.
+Don't worry about the functions ```getStockFromDatabase() returns number``` and ```SaveStockToDatabase() returns nothing```. They are provided by our database team and we can assume they do what they are supposed to (return a the current stock as a number from the database and write a new number to the database respectively). These pieces of code are executed when an apple is sold over at __fruits.com__.
 
 <a name="passing"/>
 ## Higher order functions, passing functions around 
