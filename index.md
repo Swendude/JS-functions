@@ -396,9 +396,9 @@ const input = getInput();
 changeStock(input);
 ```
 
-Our code is nice and DRY now. The shared logic now has single place where we can modify it. Also notice how our two pieces of codes are much easier to understand, the use of functions can make code 'self-documenting'. You do not need to know the definition of ```changeStock(number) returns nothing```to understand what this code is doing.
+Our code is nice and DRY now. The shared logic now has single place where we can modify it. Also notice how our two pieces of codes are much easier to understand, the use of functions can make code 'self-documenting'. You do not need to know the definition of ```changeStock(number) returns nothing```to understand what this code is doing. The total lines of codes we need to maintain has also been reduced, which is nice because code with fewer lines tends to have less errors.
 
-The 'DRY-ness' and readability of functions allow developers to better maintain and understand code. Functions also can be used to 'isolate' complex behaviour so you can deal with it without modyfing other code.
+The 'DRY-ness' and readability of functions allow developers to better maintain and understand code.
 
 _Ex 11. Go trough some of the code you wrote in the past, can you spot any opportunity to make it more DRY? Did it improve the readability of your code?_
 
