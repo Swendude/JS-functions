@@ -228,7 +228,8 @@ const greeting = 'Hello world';
 function talk() {
   // this function can acces the global scope
   console.log(greeting);
-  console.log('The Answer to the Ultimate Question of Life, the Universe, and Everything is ' + life);
+  console.log('The Answer to the Ultimate Question of Life\
+    , the Universe, and Everything is ' + life);
   
   // This is defined in function scope
   const inTalk = 'a string';
@@ -268,28 +269,65 @@ Next we will take a look at why you would want to use functions and how to maxim
 
 ## Benefits of functions
 
-For this part of this tutorial we are going to simulate a day in the life of a professional javascript developer. We work for a hip new unicorn startup called __fruits.com__, they sell fruit online and business is booming. Currently __fruits.com__ only sells apples (it's a startup).
+For this part of this tutorial we are going to simulate a day in the life of a professional javascript developer. We work for a hip new unicorn startup called _fruits.com_, they sell fruit online and business is booming. Currently _fruits.com_ only sells apples (it's a startup).
 
-The storage of the company is managed by an automated system which we have to maintain. It allows use to increase and decrease the amount of apples (the stock) in the storage. So when __fruits.com__ sells an apple, the system can be updates to reflect the sale.
+The storage of the company is managed by an automated system which we have to maintain. It allows use to increase and decrease the amount of apples (the stock) in the storage. So when _fruits.com_ sells some apples, the system can be updates to reflect the stock.
 
-Our boss aproaches us and says that he wants to improve the system, there have been some complaints about the stock number going negative. Of course you can (or should) not have minus one banana in stock so this problem needs solving.
+Our boss aproaches us and says that he wants to improve the system, there have been some complaints about the stock number going negative. Of course the system should not allow to have minus one apples in stock. Also the available storage should not exceed 100 apples, as there is no space for that and the apples would spoil outside of storage. 
 
 We start looking into the problem by pulling up the relevant code in the system.
 
 ```javascript
 // Increase stock
-const stock = getStockFromDatabase();
-stock = stock + 1;
+const input = getInput();
+let stock = getStockFromDatabase();
+stock = stock + input;
 saveStockToDatabase(stock);
 
 // [Thousands of lines of code]
 
 // Decrease stock
-const stock = getStockFromDatabase();
-stock = stock - 1;
+const input = getInput();
+let stock = getStockFromDatabase();
+stock = stock + input;
 saveStockToDatabase(stock);
 ```
-Don't worry about the functions ```getStockFromDatabase() returns number``` and ```SaveStockToDatabase() returns nothing```. They are provided by our database team and we can assume they do what they are supposed to (return a the current stock as a number from the database and write a new number to the database respectively). These pieces of code are executed when an apple is sold over at __fruits.com__.
+
+Don't worry about the functions ```getStockFromDatabase() returns number``` and ```SaveStockToDatabase(number) returns nothing```. They are provided by our database team and we can assume they do what they are supposed to (return a the current stock as a number from the database and write a new number to the database respectively). These pieces of code are executed when an apple is sold or delivered over at _fruits.com_. 
+
+The same goes for the function ```getInput() returns number```, that gives us the amount to change the code by. The result of ```getInput() returns number``` is the change we want, so in the case of a sale its result will be negative and in the case of a delivery it will be positive (this is legacy code from the developer before you, no one knows how to change this).
+
+We implement the check out boss asked for:
+
+```javascript
+// Increase stock
+const input = getInput();
+let stock = getStockFromDatabase();
+stock = stock + input;
+if (stock > 0 && stock <= 100) {
+  saveStockToDatabase(stock);
+}
+else {
+  console.log('stock not updated');
+}
+
+// [Thousands of lines of code]
+
+// Decrease stock
+const input = getInput();
+let stock = getStockFromDatabase();
+stock = stock + input;
+if (stock > 0 && stock <= 100) {
+  saveStockToDatabase(stock);
+}
+else{
+  console.log('stock not updated');
+}
+```
+Now we are sure our stock stays within reasonable limits, otherwise we log a nice error message to let the users know the operation failed.
+
+
 
 <a name="passing"/>
+
 ## Higher order functions, passing functions around 
