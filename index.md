@@ -285,7 +285,6 @@ saveStockToDatabase(stock);
 // [Thousands of lines of code]
 
 // Decrease stock
-const change = getInput();
 const stock = getStockFromDatabase();
 stock = stock - 1;
 saveStockToDatabase(stock);
