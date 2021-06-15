@@ -466,3 +466,9 @@ function triple(num) {
 var numbers = [1, 5, 7, 13];
 console.log(numbers.map(triple)); // This logs [3, 15, 21, 39]
 ```
+
+We can do write this code much shorter when we use an arrow function here:
+```javascript
+var numbers = [1, 5, 7, 13];
+console.log(numbers.map((num) => num * 3 ); // This logs [3, 15, 21, 39]
+```
