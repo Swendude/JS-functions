@@ -271,9 +271,9 @@ Next we will take a look at why you would want to use functions and how to maxim
 
 For this part of this tutorial we are going to simulate a day in the life of a professional javascript developer. We work for a new unicorn startup called _fruits.com_, they sell fruit online and business is booming. Currently _fruits.com_ only sells apples (it's a startup).
 
-The storage of the company is managed by an automated system which we have to maintain. It allows use to increase and decrease the amount of apples (the stock) in the storage. So when _fruits.com_ sells some apples, the system can be updates to reflect the stock.
+The storage of the company is managed by an automated system which we have to maintain. It handles increases and decreases of the amount of apples in the storage (the stock). So when _fruits.com_ sells some apples, or a delivery of apples comes in, the system can be updated to reflect the new stock.
 
-Our boss aproaches us and says he wants to improve the system, there have been complaints about the stock number going negative. Of course the system should not allow to have minus one apples in stock. Also, the available storage should not exceed 100 apples, as there is no space for that and the apples would spoil outside of storage. 
+Our boss approaches us and says he wants to improve the system, there have been complaints about the stock number going negative. Of course the system should not allow to have minus one apples in stock. Also, the available storage should not exceed 100 apples, as there is no space for that and the apples would spoil outside of storage. 
 
 We start looking into the problem by pulling up the relevant code in the system.
 
