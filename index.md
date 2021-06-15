@@ -269,7 +269,7 @@ Next we will take a look at why you would want to use functions and how to maxim
 
 ## Benefits of functions
 
-For this part of this tutorial we are going to simulate a day in the life of a professional javascript developer. We work for a hip new unicorn startup called _fruits.com_, they sell fruit online and business is booming. Currently _fruits.com_ only sells apples (it's a startup).
+For this part of this tutorial we are going to simulate a day in the life of a professional javascript developer. We work for a new unicorn startup called _fruits.com_, they sell fruit online and business is booming. Currently _fruits.com_ only sells apples (it's a startup).
 
 The storage of the company is managed by an automated system which we have to maintain. It allows use to increase and decrease the amount of apples (the stock) in the storage. So when _fruits.com_ sells some apples, the system can be updates to reflect the stock.
 
@@ -278,32 +278,32 @@ Our boss aproaches us and says he wants to improve the system, there have been c
 We start looking into the problem by pulling up the relevant code in the system.
 
 ```javascript
-// Increase stock
-const input = getInput();
+// Increase stock on delivery
+const input = getDeliveryAmount();
 let stock = getStockFromDatabase();
 stock = stock + input;
 saveStockToDatabase(stock);
 
 // [Thousands of lines of code]
 
-// Decrease stock
-const input = getInput();
+// Decrease stock on sale
+const input = getSaleAmount();
 let stock = getStockFromDatabase();
-stock = stock + input;
+stock = stock - input;
 saveStockToDatabase(stock);
 ```
 
-These pieces of code are executed when an apple is sold or delivered over at _fruits.com_. They are in different locations in our code since there are multiple situations where we need to update the stock.
+These pieces of code are executed when apples is sold or delivered over at _fruits.com_.
 
 Don't worry about the functions ```getStockFromDatabase() returns number``` and ```SaveStockToDatabase(number) returns nothing```. They are provided by our database team and we can assume they do what they are supposed to (return the current stock as a number from the database and write a new number to the database respectively). 
 
-The same goes for the function ```getInput() returns number```, that gives us the intended change to the stock. The result of ```getInput() returns number``` is the change, so in the case of a sale its result will be negative, in the case of a delivery it will be positive (this is legacy code from the developer before you, nobody knows how to change this).
+The same goes for the function ```getDeliveryAmount() returns number``` and ```getSaleAmount() returns number```, they give us the amount of apples sold or delivered. 
 
 We implement the checks to make our boss happy:
 
 ```javascript
-// Increase stock
-const input = getInput();
+// Increase stock on delivery
+const input = getDeliveryAmount();
 let stock = getStockFromDatabase();
 stock = stock + input;
 // Check if the stock is valid
@@ -312,37 +312,36 @@ if (stock > 0 && stock <= 100) {
 }
 else {
   console.log('stock not updated, result was invalid');
-}
+};
 
 // [Thousands of lines of code]
 
-// Decrease stock
-const input = getInput();
+// Decrease stock on sale
+const input = getSaleAmount();
 let stock = getStockFromDatabase();
-stock = stock + input;
-// Check if the stock is valid
+stock = stock - input;
 if (stock > 0 && stock <= 100) {
   saveStockToDatabase(stock);
 }
-else{
+else {
   console.log('stock not updated, result was invalid');
-}
+};
 ```
 
-Now we guarantee that our stock stays within reasonable limits. If the stock goes beyond these limits we log an error message to the user and we do not update the database.
+Now we guarantee that our stock stays within reasonable limits. If the stock goes beyond these limits the system logs an error message to the user and it does not update the database.
 
 As you might have noticed, there is a lot of duplicate code here. Duplication of code is considered a bad thing, which is stated as the **DRY** principle (Don't Repeat Yourself). The code we have here is very **WET** (Write Everything Twice), which is a bad. 
 
 _Ex 10. Why do you think code duplication is a bad thing?_
 
-Two months pass by and _fruits.com_ has attracted serious funding. There is enough money to increase storage capacity which is now limited to 300 apples.
+Two months later and _fruits.com_ has attracted serious funding. There is enough money to increase storage capacity which is now limited to 300 apples instead of only 100.
 Our boss tells us to update the software to reflect this.
 
 We dive back into the code, spent half and hour to search for all the places where we update the stock and modify the code. It's a quick fix:
 
 ```javascript
-// Increase stock
-const input = getInput();
+// Increase stock on delivery
+const input = getDeliveryAmount();
 let stock = getStockFromDatabase();
 stock = stock + input;
 // Check if the stock is valid
@@ -351,33 +350,30 @@ if (stock > 300 && stock <= 100) {
 }
 else {
   console.log('stock not updated, result was invalid');
-}
+};
 
 // [Thousands of lines of code]
 
-// Decrease stock
-const input = getInput();
+// Decrease stock on sale
+const input = getSaleAmount();
 let stock = getStockFromDatabase();
-stock = stock + input;
-// Check if the stock is valid
+stock = stock - input;
 if (stock > 0 && stock <= 300) {
   saveStockToDatabase(stock);
 }
-else{
+else {
   console.log('stock not updated, result was invalid');
-}
+};
 ```
 
-Yesterday was a rough night, and we made a pretty big mistake here. An angry boss shows up, complaining that deliveries are not being updates to the system.
+Yesterday was a rough night, and we made a pretty big mistake here (as all humans do sometimes). An angry boss shows up, complaining that deliveries are not being updates to the system.
 
-As you can see in this (silly) example, maintaining code is hard an error prone. We shouldn't make it any harder than it needs to be, we should change this code into a function.
+As you can see in this (silly) example, maintaining code is hard and error prone. We shouldn't make it any harder than it needs to be, we should change this code into a function.
 
 ```javascript
-function changeStock(change) {
-  let stock = getStockFromDatabase();
-  stock = stock + input;
+function saveValidStock(newStock) {
   // Check if the stock is valid
-  if (stock > 0 && stock <= 300) {
+  if (newStock > 0 && newStock <= 300) {
     saveStockToDatabase(stock);
   }
   else {
@@ -385,20 +381,20 @@ function changeStock(change) {
   }
 }
 
-// Increase stock
-const input = getInput();
-changeStock(input);
+// Increase stock on delivery
+const input = getDeliveryAmount();
+saveValidStock(input);
 
 // [Thousands of lines of code]
 
-// Decrease stock
-const input = getInput();
-changeStock(input);
+// Decrease stock on sale
+const input = getSaleAmount();
+saveValidStock(input);
 ```
 
-Our code is nice and DRY now. The shared logic now has single place where we can modify it. Also notice how our two pieces of codes are much easier to understand, the use of functions can make code 'self-documenting'. You do not need to know the definition of ```changeStock(number) returns nothing```to understand what this code is doing. The total lines of codes we need to maintain has also been reduced, which is nice because code with fewer lines tends to have less errors.
+Our code is nice and DRY now. The **shared logic now** has single place where we can modify it. Also notice how our two pieces of codes are much easier to understand, the use of functions can make code 'self-documenting'. You do not need to know the definition of ```changeStock(number) returns nothing```to understand what this code is doing. The total lines of codes we need to maintain has also been reduced, which is nice because code with fewer lines tends to have less errors.
 
-The 'DRY-ness' and readability of functions allow developers to better maintain and understand code.
+The 'DRY-ness' and readability of functions allow developers to better maintain and understand code. These are some of the benefits of using functions in your code. Always think twice before you copy-paste your own code, it might be time to use a function.
 
 _Ex 11. Go trough some of the code you wrote in the past, can you spot any opportunity to make it more DRY? Did it improve the readability of your code?_
 
@@ -406,7 +402,7 @@ _Ex 11. Go trough some of the code you wrote in the past, can you spot any oppor
 
 ## Arrow functions
 
-The last thing we have to discuss are **arrow functions**. They are used to declare functions in a shorter way, we define a function ``triple(number) returns number`` that triples its argument using a 'normal' function decleration: 
+The last thing we have to discuss is **arrow functions**. Arrow functions are used to declare functions in a shorter way without defining it. As an example we will define a function ``triple(number) returns number`` that triples its argument using a 'normal' function declaration as we have seen before: 
 
 ```javascript
 function triple(num) {
@@ -427,11 +423,11 @@ console.log(triple(4)); // returns 12
 ```
 What did we do?
 
-- The  ```function``` keyword  and functon name are gone
-- The arguments go in between the parentheses before the arrow (```=>```) followed by the function body. 
-- We stored this function in a variable called ```triple```. The function itself has no name, we only have variable pointing to the function that we chose to call ```triple```.
+- The  ```function``` keyword and function name are gone
+- The arguments go in between the parentheses before the arrow (```=>```) followed by the function body 
+- We stored this function in a variable called ```triple```. The function itself has no name, we only have variable pointing to the function that we chose to call ```triple```
 
-Arrow functions can be even shorter if:
+An arrow function can be written shorter if:
 
   - it has a single argument, then you can omit the parentheses. If you have no arguments you do need to add empty parentheses:
       ```javascript
@@ -439,9 +435,21 @@ Arrow functions can be even shorter if:
         return num * 3;
       };
       
-      var sayHi = () => {console.log('hi')};
-      ``` 
-  - its function body contains only a single statement **that is a return statement** you can omit ```return```:
+      // no arguments to this arrow function
+      var sayHi = () => {
+        console.log('hi');
+      };
+      
+      // multiple arguments always use parentheses
+      var add = (x, y) => {
+        return x + y;
+      };
+      ```
+  - its function body contains only a single statement you can omit the curly brackets on the function body:
+       ```javascript
+      var sayHi = () => console.log('hi');
+      ```
+  - its function body contains only a single statement **that is a return statement** you **MUST** omit ```return```:
        ```javascript
       var triple = num => num * 3;
       ```
