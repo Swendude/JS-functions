@@ -423,8 +423,8 @@ console.log(triple(4)); // returns 12
 ```
 What did we do?
 
-- The  ```function``` keyword and function name are gone
-- The arguments go in between the parentheses before the arrow (```=>```) followed by the function body 
+- The  ```function``` keyword and the function name are gone
+- The arguments are followed by the arrow (```=>```) which is followed by the function body 
 - We stored this function in a variable called ```triple```. The function itself has no name, we only have variable pointing to the function that we chose to call ```triple```
 
 An arrow function can be written shorter if:
@@ -454,11 +454,15 @@ An arrow function can be written shorter if:
       var triple = num => num * 3;
       ```
  Arrow functions have some limitations that you will see later, but they are a great tool if you want to quickly define a function without giving it a name.
- This is handy when you want to use a **higher order function**, such as a function that takes a function as arguments. 
+ This is handy when you want to use a **higher order function**. Higher order functions are functions that take other function as their arguments.
  
- A useful example is the ```Array.map()``` function (it is a function that belongs to an array, you'll learn more about this later). It takes a function as an argument and applies that to every element of the array. The function argument should itself have only one argument and should return a value to put in the new array.
+An useful example of a higher order function is the ```Array.map()``` function (it is a function that belongs to an array, you'll learn more about this later). It takes a function as an argument and applies that to every element of the array and then returns the new array. The argument to map should be a function that takes a single element from the array as an argument and return a new element. Let's use our ```triple``` function from before: 
  
- ```javascript
- var numbers = [1,5,7,13];
- var triple_numbers = numbers.map(num => num * 3)
- ```
+```javascript
+function triple(num) {
+  return num * 3;
+}
+
+var numbers = [1, 5, 7, 13];
+console.log(numbers.map(triple)); // This logs [3, 15, 21, 39]
+```
