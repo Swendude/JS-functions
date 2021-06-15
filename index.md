@@ -464,11 +464,16 @@ function triple(num) {
 }
 
 var numbers = [1, 5, 7, 13];
-console.log(numbers.map(triple)); // This logs [3, 15, 21, 39]
+console.log(numbers.map( triple )); // This logs [3, 15, 21, 39]
 ```
+Notice how we just give the function name as an argument without arguments. If we added arguments to ```triple``` we would give ```map``` the result as an argument instead of the function.
 
 We can do write this code much shorter when we use an arrow function here:
 ```javascript
 var numbers = [1, 5, 7, 13];
-console.log(numbers.map((num) => num * 3 ); // This logs [3, 15, 21, 39]
+console.log(numbers.map( (num) => num * 3 )); // This logs [3, 15, 21, 39]
 ```
+
+As you can see this code is shorter and we don't have to define triple somewhere else to use it's logic here. It might seem more difficult to read right now, but that will get much better when you spend more time on writing your own arrow functions.
+
+_Ex 12. Convert all the functions in this tutorial into arrow functions, make them as short as possible_
