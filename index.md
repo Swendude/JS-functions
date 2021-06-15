@@ -1,6 +1,6 @@
 # Functions in Javascript
 
-In this tutorial you will learn about functions in javascript. Professional developers use functions all the time. They are a fundamental concept of coding in javascript (and most other languages). Take your time going trough this content to really get a firm grasp on this concept, it will pay off.
+In this tutorial you will learn about functions in javascript. Professional developers use functions all the time. They are a fundamental concept of coding in javascript (and most other languages). Take your time going through this content to really get a firm grasp on this concept, it will pay off.
 
 ### Structure of this tutorial
 We will start by discussing a real life analogy of functions in order to illustrate what we want to accomplish. Next, we dive into what a function looks like and how you can use it in your code. In the third part we will look at the benefits of using functions. The final part goes into advanced usage of functions, consider this material a sneak peek of how modern javascript uses functions.
@@ -39,7 +39,7 @@ Step 4: Blend the banana mash, orange juice and\
   the sliced strawberries together until smooth
 ```
 
-As we can see this recipe is very consice, it is something that a human will (probably) understand. 
+As we can see this recipe is very concise, it is something that a human will (probably) understand. 
 The way it is written assumes the reader knows how to peel, clean and blend different kinds of fruits. To most humans this will be obvious and maybe even trivial but a child trying out this recipe might have trouble following the steps. For this child we can make the recipe more verbose like this:
 
 ```
@@ -109,7 +109,7 @@ Some terminology and remarks:
 
 - After the ```function``` keyword the function **name** is defined. In this case we call the function **increase**
 
-- Directly following the function name, we specify the **arguments** between parentheses. We can choose a name for every argument we want to use, that name becomes a variable that we can provide when we use the function (we will see how we do this later). Our **increase** function takes a single argument that we named ```num```. A function with no arguments look like ```function increase() {``` and a function with multiple arguments looks like ```function increase(num1, second_num, numberthree)```. Note that we can freely choose argument names just like we can with variables.
+- Directly following the function name, we specify the **arguments** between parentheses. We can choose a name for every argument we want to use, that name becomes a variable that we can provide when we use the function (we will see how we do this later). Our **increase** function takes a single argument that we named ```num```. A function with no arguments looks like ```function increase() {``` and a function with multiple arguments looks like ```function increase(num1, second_num, numberthree)```. Note that we can freely choose argument names just like we can with variables.
 
 - The steps needed to execute this function are defined within the curly brackets following the name and arguments. We call the steps between curly brackets the **function body**. In our **increase** function we only have two steps, but a function body can contain as many lines of javascript as you need. Inside these lines the arguments become available to use as variables.
 
@@ -129,7 +129,7 @@ _Ex 5. How do the functions from ex. 3 & ex. 4 differ from **increase** and **de
 
 Now we know how to define a function, we need to know how to use it. Instead of saying that we 'use' a function we should get used to the idea of 'calling' a function. 
 
-After defining our function **increase** we are going to call it with an argument of 6 (essentialy asking 'increase 6':
+After defining our function **increase** we are going to call it with an argument of 6 (essentially asking 'increase 6':
 ```javascript
 function increase(num) {
   const increased = num + 1;
@@ -139,7 +139,7 @@ function increase(num) {
 increase(6);
 ```
 
-Notice how the last line 'fits' onto the function definition ```increase(num)```. Altough the function is being called we are not doing anything with the result of this function, let's change our code to store the result in a variable and logging that to our console:
+Notice how the last line 'fits' onto the function definition ```increase(num)```. Although the function is being called we are not doing anything with the result of this function, let's change our code to store the result in a variable and logging that to our console:
 
 ```javascript
 function increase(num) {
@@ -177,7 +177,7 @@ const squared = biggestSquare(3, 9) // should log 81 (the square of 9)
 console.log(squared); // logs 'undefined'
 ```
 
-Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very usefull for us as we can not 'reach' the result of the function. When we log the result we see that it returns an `undefined` since nothing has been returned. Let's change our function to use ```return```
+Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very useful for us as we can not 'reach' the result of the function. When we log the result we see that it returns an `undefined` since nothing has been returned. Let's change our function to use ```return```
 
 ```javascript
 function biggestSquare(x, y) {
@@ -226,7 +226,7 @@ const life = 42;
 const greeting = 'Hello world';
 
 function talk() {
-  // this function can acces the global scope
+  // this function can access the global scope
   console.log(greeting);
   console.log('The Answer to the Ultimate Question of Life\
     , the Universe, and Everything is ' + life);
@@ -240,7 +240,7 @@ talk();
 console.log(inTalk); // You'll get an ReferenceError
 ```
 
-Keep this in mind while working with functions! Altough you can access the global scope from within a function **it is good practice to avoid doing so, always prefer arguments when passing information to functions**.
+Keep this in mind while working with functions! Although you can access the global scope from within a function **it is good practice to avoid doing so, always prefer arguments when passing information to functions**.
 
 That was most of the information you need to know about functions. The real way to learn is to start writing and using your own.
 
@@ -293,7 +293,7 @@ stock = stock - input;
 saveStockToDatabase(stock);
 ```
 
-These pieces of code are executed when apples is sold or delivered over at _fruits.com_.
+These pieces of code are executed when apples are sold or delivered over at _fruits.com_.
 
 Don't worry about the functions ```getStockFromDatabase() returns number``` and ```SaveStockToDatabase(number) returns nothing```. They are provided by our database team and we can assume they do what they are supposed to (return the current stock as a number from the database and write a new number to the database respectively). 
 
@@ -330,14 +330,14 @@ else {
 
 Now we guarantee that our stock stays within reasonable limits. If the stock goes beyond these limits the system logs an error message to the user and it does not update the database.
 
-As you might have noticed, there is a lot of duplicate code here. Duplication of code is considered a bad thing, which is stated as the **DRY** principle (Don't Repeat Yourself). The code we have here is very **WET** (Write Everything Twice), which is a bad. 
+As you might have noticed, there is a lot of duplicate code here. Duplication of code is considered a bad thing, which is stated as the **DRY** principle (Don't Repeat Yourself). The code we have here is very **WET** (Write Everything Twice), which is bad. 
 
 _Ex 10. Why do you think code duplication is a bad thing?_
 
 Two months later and _fruits.com_ has attracted serious funding. There is enough money to increase storage capacity which is now limited to 300 apples instead of only 100.
 Our boss tells us to update the software to reflect this.
 
-We dive back into the code, spent half and hour to search for all the places where we update the stock and modify the code. It's a quick fix:
+We dive back into the code, spend half an hour to search for all the places where we update the stock and modify the code. It's a quick fix:
 
 ```javascript
 // Increase stock on delivery
@@ -366,7 +366,7 @@ else {
 };
 ```
 
-Yesterday was a rough night, and we made a pretty big mistake here (as all humans do sometimes). An angry boss shows up, complaining that deliveries are not being updates to the system.
+Yesterday was a rough night, and we made a pretty big mistake here (as all humans do sometimes). An angry boss shows up, complaining that deliveries are not being updated to the system.
 
 As you can see in this (silly) example, maintaining code is hard and error prone. We shouldn't make it any harder than it needs to be, we should change this code into a function.
 
@@ -392,11 +392,11 @@ const input = getSaleAmount();
 saveValidStock(input);
 ```
 
-Our code is nice and DRY now. The **shared logic now** has single place where we can modify it. Also notice how our two pieces of codes are much easier to understand, the use of functions can make code 'self-documenting'. You do not need to know the definition of ```changeStock(number) returns nothing```to understand what this code is doing. The total lines of codes we need to maintain has also been reduced, which is nice because code with fewer lines tends to have less errors.
+Our code is nice and DRY now. The **shared logic now** has a single place where we can modify it. Also notice how our two pieces of codes are much easier to understand, the use of functions can make code 'self-documenting'. You do not need to know the definition of ```changeStock(number) returns nothing```to understand what this code is doing. The total lines of codes we need to maintain has also been reduced, which is nice because code with fewer lines tends to have less errors.
 
 The 'DRY-ness' and readability of functions allow developers to better maintain and understand code. These are some of the benefits of using functions in your code. Always think twice before you copy-paste your own code, it might be time to use a function.
 
-_Ex 11. Go trough some of the code you wrote in the past, can you spot any opportunity to make it more DRY? Did it improve the readability of your code?_
+_Ex 11. Go through some of the code you wrote in the past, can you spot any opportunity to make it more DRY? Did it improve the readability of your code?_
 
 <a name="expressions"/>
 
@@ -453,13 +453,12 @@ An arrow function can be written shorter if:
        ```javascript
       var triple = num => num * 3;
       ```
- Arrow functions have some limitiations that you will see later, but they are a great tool if you want to quickly define a function without giving it a name.
+ Arrow functions have some limitations that you will see later, but they are a great tool if you want to quickly define a function without giving it a name.
  This is handy when you want to use a **higher order function**, such as a function that takes a function as arguments. 
  
- A usefull example is the ```Array.map()``` function (it is a function that belongs to an array, you'll learn more about this later). It takes a function as an argument and applies that to every element of the array. The function arguement should itself have only one argument and should return a value to put in the new array.
+ A useful example is the ```Array.map()``` function (it is a function that belongs to an array, you'll learn more about this later). It takes a function as an argument and applies that to every element of the array. The function argument should itself have only one argument and should return a value to put in the new array.
  
  ```javascript
  var numbers = [1,5,7,13];
  var triple_numbers = numbers.map(num => num * 3)
  ```
-      
