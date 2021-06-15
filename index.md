@@ -72,7 +72,7 @@ Maybe you know how to juggle, you juggle something (knives, flaming torches or c
 Most verbs can be described using this pattern so let's come up with some names for the various parts that make up a 'sub-instruction' (which we will now call functions):
 
 - A Function has a *name* (or identifier). E.g. 'Peel' and 'Juggle.'
-- A Function may 'act on' some (or multiple) things, we call this the *arguments*. E.g. 'Banana' or 'Knives'. _Some function do not 'act on' anything but just produce results (e.g 'Smiling')._
+- A Function may 'act on' some (or multiple) things, we call this the *arguments*. E.g. 'Banana' or 'Knives'. _Some functions do not 'act on' anything but just produce results (e.g 'Smiling')._
 - A Function produces a *result*, this may be an effect like 'knives being thrown in a pattern' or it may be a thing like 'Peeled banana'. 
 
 It's as simple as that! We will get to code soon enough but before you continue spend some time on the following exercise:
@@ -103,7 +103,7 @@ function increase(num) {
 }
 ```
 Some terminology and remarks:
-- This whole code block called a **function definition**, and that's exactly what it does. Javascript will not execute these lines of code when it encounters a definition, it just says 'These are the steps for **increase**, I should remember them'
+- This whole code block is called a **function definition**, and that's exactly what it does. Javascript will not execute these lines of code when it encounters a definition, it just says 'These are the steps for **increase**, I should remember them'
 
 - The definition uses the ```function``` keyword, it lets javascript know that a function is being defined here
 
@@ -177,7 +177,7 @@ const squared = biggestSquare(3, 9) // should log 81 (the square of 9)
 console.log(squared); // logs 'undefined'
 ```
 
-Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very useful for us as we can not 'reach' the result of the function. When we log the result we see that it returns an `undefined` since nothing has been returned. Let's change our function to use ```return```
+Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very useful for us as we can not 'reach' the result of the function. When we log the result we see that it returns `undefined` since nothing has been returned by the function. Let's change our function to use ```return```
 
 ```javascript
 function biggestSquare(x, y) {
@@ -246,7 +246,7 @@ That was most of the information you need to know about functions. The real way 
 
 _Ex 6. Write a function named ```isReversed``` that takes a two strings as an argument and returns ```true``` if the strings are the reverse of each other, otherwise return ```false```_
 
-_Ex 7. Write a function ```isPalindrome``` that takes a single string and returns ```true``` if the string is a palindrome, otherwise return ```false``` (A palindrome is word that stays the same when you reverse it. E.g. 'racecar', 'bob' and 'Never odd or even')_
+_Ex 7. Write a function ```isPalindrome``` that takes a single string and returns ```true``` if the string is a palindrome, otherwise return ```false``` (A palindrome is a word that stays the same when you reverse it. E.g. 'racecar', 'bob' and 'Never odd or even')_
 
 _Ex 8. If you didn't already, write ```isPalidrome``` using ```isReversed``` inside the function body_
 
@@ -392,7 +392,7 @@ const input = getSaleAmount();
 saveValidStock(input);
 ```
 
-Our code is nice and DRY now. The **shared logic now** has a single place where we can modify it. Also notice how our two pieces of codes are much easier to understand, the use of functions can make code 'self-documenting'. You do not need to know the definition of ```changeStock(number) returns nothing```to understand what this code is doing. The total lines of codes we need to maintain has also been reduced, which is nice because code with fewer lines tends to have less errors.
+Our code is nice and DRY now. The **shared logic now** has a single place where we can modify it. Also notice how our two pieces of codes are much easier to understand, the use of functions can make code 'self-documenting'. You do not need to know the definition of ```saveValidStock(number) returns nothing``` to understand what this code is doing. The total lines of codes we need to maintain has also been reduced, which is nice because code with fewer lines tends to have less errors.
 
 The 'DRY-ness' and readability of functions allow developers to better maintain and understand code. These are some of the benefits of using functions in your code. Always think twice before you copy-paste your own code, it might be time to use a function.
 
