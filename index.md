@@ -20,6 +20,8 @@ We will start by discussing a real life analogy of functions in order to illustr
 
 [Function expressions](#expressions)
 
+[Deep dive](#dive)
+
 
 <a name="recipe"/>
 
@@ -31,6 +33,7 @@ In recipes the target is an (intelligent) human. Although a human and a machine 
 
 
 Let us take a look at a simple recipe for making a fruit smoothie
+
 ```
 Step 1: Peel 2 bananas and mash them
 Step 2: Peel 3 oranges, squeeze out the juice
@@ -59,6 +62,7 @@ Step 3.c: Cut the cleaned strawberries into 4 parts
 Step 4.a: Take the banana mash, orange juice and sliced strawberries
 Step 4.b: Put everything into a blender and let it run until smooth
 ```
+
 As we can see, our recipe got a lot longer by 'expanding' the sub-instructions into the recipe. It would be very impractical to write recipes this way, cookbooks would have to be way longer and recipes would contain a lot of repetitive steps. Another disadvantage of this method is that every cook has their own preferred method for 'slicing' and 'peeling', as seen by the [8 different approaches to peeling a banana on wikiHow](https://www.wikihow.com/Peel-a-Banana). Techniques might change over time (somebody invents a Banana-peeler 2000), rendering books obsolete or outdated. 
 
 ### Verbs as functions
@@ -102,6 +106,7 @@ function increase(num) {
   return increased;
 }
 ```
+
 Some terminology and remarks:
 - This whole code block is called a **function definition**, and that's exactly what it does. Javascript will not execute these lines of code when it encounters a definition, it just says 'These are the steps for **increase**, I should remember them'
 
@@ -130,6 +135,7 @@ _Ex 5. How do the functions from ex. 3 & ex. 4 differ from **increase** and **de
 Now we know how to define a function, we need to know how to use it. Instead of saying that we 'use' a function we should get used to the idea of 'calling' a function. 
 
 After defining our function **increase** we are going to call it with an argument of 6 (essentially asking 'increase 6':
+
 ```javascript
 function increase(num) {
   const increased = num + 1;
@@ -177,7 +183,8 @@ const squared = biggestSquare(3, 9) // should log 81 (the square of 9)
 console.log(squared); // logs 'undefined'
 ```
 
-Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very useful for us as we can not 'reach' the result of the function. When we log the result we see that it returns `undefined` since nothing has been returned by the function. Let's change our function to use ```return```
+Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very useful for us as we can not 'reach' the result of the function. When we log the result we see that it returns `undefined` since nothing has been returned by the function. Let's change our function to use 
+```return```:
 
 ```javascript
 function biggestSquare(x, y) {
@@ -192,6 +199,7 @@ function biggestSquare(x, y) {
 const squared = biggestSquare(3, 9) 
 console.log(squared); // logs 81
 ```
+
 Now we can use our result in the rest of our code.
 
 ### Function scope
@@ -214,12 +222,11 @@ sayHi();
 
 // This won't work because `something` has not been defined anywhere
 console.log(something);
-
 ```
+
 we can say that ```life```, ```greeting``` and ```sayHi``` are **in scope** (known to javascript). If something is not in scope and you use it (see ```something``` above), you will get an error.
 
 Functions have their own scope, and anything defined in a functions body will only be available to the function code. We call the default scope that javascript uses the **global scope** and function can access that. It might help to think that 'scope flows down into functions, but not up to global'. Here is an example:
-
 
 ```javascript
 const life = 42;
@@ -421,6 +428,7 @@ var triple = (num) => {
   
 console.log(triple(4)); // returns 12
 ```
+
 What did we do?
 
 - The  ```function``` keyword and the function name are gone
@@ -430,6 +438,7 @@ What did we do?
 An arrow function can be written shorter if:
 
   - it has a single argument, then you can omit the parentheses. If you have no arguments you do need to add empty parentheses:
+      
       ```javascript
       var triple = num => {
         return num * 3;
@@ -445,14 +454,19 @@ An arrow function can be written shorter if:
         return x + y;
       };
       ```
+  
   - its function body contains only a single statement you can omit the curly brackets on the function body:
-       ```javascript
+      
+      ```javascript
       var sayHi = () => console.log('hi');
       ```
+  
   - its function body contains only a single statement **that is a return statement** you **MUST** omit ```return```:
-       ```javascript
+      
+      ```javascript
       var triple = num => num * 3;
       ```
+ 
  Arrow functions have some limitations that you will see later, but they are a great tool if you want to quickly define a function without giving it a name.
  This is handy when you want to use a **higher order function**. Higher order functions are functions that take other function as their arguments.
  
@@ -466,9 +480,11 @@ function triple(num) {
 var numbers = [1, 5, 7, 13];
 console.log(numbers.map( triple )); // This logs [3, 15, 21, 39]
 ```
+
 Notice how we just give the function name as an argument without arguments. If we added arguments to ```triple``` we would give ```map``` the result as an argument instead of the function.
 
 We can do write this code much shorter when we use an arrow function here:
+
 ```javascript
 var numbers = [1, 5, 7, 13];
 console.log(numbers.map( (num) => num * 3 )); // This logs [3, 15, 21, 39]
@@ -477,3 +493,9 @@ console.log(numbers.map( (num) => num * 3 )); // This logs [3, 15, 21, 39]
 As you can see this code is shorter and we don't have to define triple somewhere else to use it's logic here. It might seem more difficult to read right now, but that will get much better when you spend more time on writing your own arrow functions.
 
 _Ex 12. Convert all the functions in this tutorial into arrow functions, make them as short as possible_
+
+<a name="dive"/>
+
+## Deep dive
+
+lalala
