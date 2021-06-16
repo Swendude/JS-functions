@@ -504,6 +504,6 @@ If your hunger for functions has not been satiated yet, here are some topic I su
 
 - The function ```Array.reduce()``` is a very useful higher order function - [MDN link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 - Generators are special function that can be used to 'pause' computations until you need a new value - [MDN link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
-- Recursive functions are crazy functions that call themselves. They can be used to calculate infinite lists and drawings of trees - [Wikipedia](https://en.wikipedia.org/wiki/Recursion_(computer_science))
+- Recursive functions are crazy functions that call themselves. They can be used to calculate infinite lists and draw trees - [Wikipedia](https://en.wikipedia.org/wiki/Recursion_(computer_science))
 
 Thanks so much for reading!
