@@ -500,9 +500,9 @@ _Ex 12. Convert all the functions in this tutorial into arrow functions, make th
 
 ## Closing & Deep dive
 
-That concludes this introduction to functions. A great place to find more information on functions are the MDN web docs (from Mozilla, the company that maintains firefox). Their [guide on function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is a well written document that covers all there is to functions. It's a good idea to get good at reading documentation like this, it will be a helpful skill if you ever need to learn a novel topic. 
+That concludes this introduction to functions. A great place to find more information on functions are the MDN web docs (from Mozilla, the company that maintains firefox). Their [guide on functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is a well written document that covers all there is to functions. It's a good idea to get good at reading documentation like this, it will be a helpful skill if you ever need to learn a novel topic. 
 
-If your hunger for functions has not been satiated yet, here are some topic I suggest studying:
+If your hunger for functions has not been satiated, here are some topic that are useful to look into:
 
 - The function ```Array.reduce()``` is a very useful higher order function - [MDN link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
 - Generators are special function that can be used to 'pause' computations until you need a new value - [MDN link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
