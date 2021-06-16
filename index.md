@@ -184,7 +184,7 @@ console.log(squared); // logs 'undefined'
 ```
 
 Notice that this function does not contain a return statement, it just logs something to the console. Often this is not very useful for us as we can not 'reach' the result of the function. When we log the result we see that it returns `undefined` since nothing has been returned by the function. Let's change our function to use 
-```return```:
+a```return``` statement:
 
 ```javascript
 function biggestSquare(x, y) {
