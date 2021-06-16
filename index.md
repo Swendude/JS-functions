@@ -472,7 +472,7 @@ An arrow function can be written shorter ..
 Arrow functions have some limitations that you will see later, but they are a great tool if you want to quickly define a function without giving it a name.
 This is handy when you want to use a **higher order function**. Higher order functions are functions that take other functions as their arguments.
  
-An useful example of a higher order function is the ```Array.map()``` function (it is a function that belongs to an array, you'll learn more about this later). It takes a function as an argument and applies that to every element of the array and then returns the new array. The argument to map should be a function that takes a single element from the array as an argument and returns a new element. Let's use our ```triple``` function from before: 
+A useful example of a higher order function is the ```Array.map()``` function (it is a function that belongs to an array, you'll learn more about this later). It takes a function as an argument and applies that to every element of the array and then returns the new array. The argument to map should be a function that takes a single element from the array as an argument and returns a new element. Let's use our ```triple``` function from before: 
  
 ```javascript
 function triple(num) {
@@ -485,7 +485,7 @@ console.log(numbers.map( triple )); // This logs [3, 15, 21, 39]
 
 Notice how we just give the function name as an argument without arguments. If we added arguments to ```triple``` we would give ```map``` the result as an argument instead of the function.
 
-We can do write this code much shorter when we use an arrow function here:
+We can write this code much shorter when we use an arrow function here:
 
 ```javascript
 var numbers = [1, 5, 7, 13];
@@ -502,10 +502,10 @@ _Ex 12. Convert all the functions in this tutorial into arrow functions, make th
 
 That concludes this introduction to functions. A great place to find more information on functions are the MDN web docs (from Mozilla, the company that maintains firefox). Their [guide on functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Functions) is a well written document that covers all there is to functions. It's a good idea to get good at reading documentation like this, it will be a helpful skill if you ever need to learn a novel topic. 
 
-If your hunger for functions has not been satiated, here are some topic that are useful to look into:
+If your hunger for functions has not been satiated, here are some topics that are useful to look into:
 
 - The function ```Array.reduce()``` is a very useful higher order function - [MDN link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce)
-- Generators are special function that can be used to 'pause' computations until you need a new value - [MDN link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
+- Generators are special functions that can be used to 'pause' computations until you need a new value - [MDN link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator)
 - Recursive functions are crazy functions that call themselves. They can be used to calculate infinite lists and draw trees - [Wikipedia](https://en.wikipedia.org/wiki/Recursion_(computer_science))
 
 Thanks so much for reading!
