@@ -437,9 +437,9 @@ What did we do?
 - The arguments are followed by the arrow (```=>```) which is followed by the function body 
 - We stored this function in a variable called ```triple```. The function itself has no name, we only have variable pointing to the function that we chose to call ```triple```
 
-An arrow function can be written shorter if:
+An arrow function can be written shorter ..
 
-  - it has a single argument, then you can omit the parentheses. If you have no arguments you do need to add empty parentheses:
+  - .. if it has a single argument, then you can omit the parentheses. If you have no arguments you do need to add empty parentheses:
       
       ```javascript
       var triple = num => {
@@ -457,13 +457,13 @@ An arrow function can be written shorter if:
       };
       ```
   
-  - its function body contains only a single statement you can omit the curly brackets on the function body:
+  - .. if its function body contains only a single statement you can omit the curly brackets on the function body:
       
       ```javascript
       var sayHi = () => console.log('hi');
       ```
   
-  - its function body contains only a single statement **that is a return statement** you **MUST** omit ```return```:
+  - .. if its function body contains only a single statement **that is a return statement** you **MUST** omit ```return```:
       
       ```javascript
       var triple = num => num * 3;
