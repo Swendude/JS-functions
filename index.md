@@ -3,12 +3,12 @@
 In this tutorial you will learn about functions in javascript. Professional developers use functions all the time. They are a fundamental concept of coding in javascript (and most other languages). Take your time going through this content to really get a firm grasp on this concept, it will pay off.
 
 ### Structure of this tutorial
-We will start by discussing a real life analogy of functions in order to illustrate what we want to accomplish. Next, we dive into what a function looks like and how you can use it in your code. In the third part we will look at the benefits of using functions. The final part goes into advanced usage of functions, consider this material a sneak peek of how modern javascript uses functions.
+We will start by discussing a real life analogy of functions in order to illustrate what we want to accomplish. Next, we dive into what a function looks like and how you can use it in your code. In the third part we will look at the benefits of using functions. We can not teach you modern javascript without teaching you about arrow functions in the next chapter. We close of with some more material for you to study if you want to learn more on your own. 
 
 > _**This tutorial assumes you are familiar with the following concepts. If you feel unsure about any of these take some time to review them before continuing this tutorial.**_
 > 
 > - _How to define and use variables_
-> - _Built-in datatypes (Bools, numbers, strings, objects)_
+> - _Built-in datatypes (Bools, numbers, strings, objects, ..)_
 > - _Boolean conditions, if-else statements_
 
 ## Table of Contents  
